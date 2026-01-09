@@ -61,9 +61,7 @@
       justify-content: space-between;
       flex-wrap: wrap;
     }
-
     .heroText{ flex: 1 1 520px; min-width: 260px; }
-
     .kicker{
       color: var(--muted);
       letter-spacing: 0.14em;
@@ -71,7 +69,6 @@
       font-size: 0.85rem;
       margin: 0 0 10px;
     }
-
     h1{
       font-family: "Cormorant Garamond", serif;
       font-weight: 600;
@@ -79,13 +76,11 @@
       font-size: clamp(2.4rem, 3.8vw, 3.6rem);
       margin: 0 0 8px;
     }
-
     .roles{
       color: var(--muted);
       font-size: 1rem;
       margin: 0 0 18px;
     }
-
     .nav{
       display:flex;
       flex-wrap:wrap;
@@ -102,7 +97,6 @@
       font-size: 0.95rem;
     }
     .nav a:hover{ color: var(--red); }
-
     /* PROFILE IMAGE PLACE (uses your uploaded filename) */
     .avatarWrap{ flex: 0 0 auto; }
     .avatar{
@@ -114,13 +108,50 @@
      box-shadow: var(--shadow);
      background: rgba(42,36,32,0.04);
 }
-
     /* SECTION BANDS (multiple colors visible) */
     section{ padding: 44px 0; }
-    .bandA{ background: var(--cream); border-top: 1px solid var(--line); }
-    .bandB{ background: var(--linen); border-top: 1px solid var(--line); }
-    .bandC{ background: var(--winter); border-top: 1px solid var(--line); }
+   /* FILM-LIKE SECTION BACKGROUNDS */
+.bandA{
+  background:
+    linear-gradient(180deg, rgba(0,0,0,0.04), rgba(0,0,0,0.02)),
+    repeating-linear-gradient(
+      90deg,
+      rgba(0,0,0,0.02),
+      rgba(0,0,0,0.02) 1px,
+      transparent 1px,
+      transparent 6px
+    ),
+    var(--cream);
+  border-top: 1px solid var(--line);
+}
 
+.bandB{
+  background:
+    radial-gradient(circle at 50% 20%, rgba(0,0,0,0.08), transparent 55%),
+    repeating-linear-gradient(
+      90deg,
+      rgba(0,0,0,0.03),
+      rgba(0,0,0,0.03) 1px,
+      transparent 1px,
+      transparent 7px
+    ),
+    var(--linen);
+  border-top: 1px solid var(--line);
+}
+
+.bandC{
+  background:
+    linear-gradient(180deg, rgba(0,0,0,0.06), transparent 40%),
+    repeating-linear-gradient(
+      90deg,
+      rgba(0,0,0,0.025),
+      rgba(0,0,0,0.025) 1px,
+      transparent 1px,
+      transparent 8px
+    ),
+    var(--winter);
+  border-top: 1px solid var(--line);
+}
     h2{
       font-family: "Cormorant Garamond", serif;
       font-weight: 500;
@@ -398,6 +429,7 @@
   </script>
 </body>
 </html>
+
 
 
 
