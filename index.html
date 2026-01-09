@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Viktoria Domnikova — film / art</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      /* Cream / winter / wood + mystical red & gold — bright & readable */
+      --cream: #fbf6ee;
+      --white: #ffffff;
+      --winter: #eef3f6;
+      --linen: #f2ebe1;
+      --wood: #b08968;
+      --red: #8b1f2f;     /* mystical burgundy */
+      --gold: #b58b2a;
+
+      --text: #2a2420;    /* warm espresso for readability */
+      --muted: #5f564e;
+      --line: rgba(42,36,32,0.14);
+      --shadow: 0 14px 34px rgba(42,36,32,0.10);
+    }
+
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background:
+        radial-gradient(1000px 700px at 10% -10%, rgba(181,139,42,0.12), transparent 55%),
+        radial-gradient(1000px 700px at 95% 5%, rgba(139,31,47,0.10), transparent 55%),
+        radial-gradient(900px 650px at 70% 120%, rgba(176,137,104,0.12), transparent 55%),
+        var(--cream);
+      color: var(--text);
+      line-height:1.7;
+    }
+
+    a{ color: var(--text); text-decoration:none; }
+    a:hover{ color: var(--red); }
+
+    .wrap{
+      max-width: 1020px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* HEADER (different background color) */
+    header{
+      background: linear-gradient(135deg, rgba(238,243,246,0.98), rgba(242,235,225,0.98));
+      border-bottom: 1px solid var(--line);
+      padding: 56px 0 26px;
+    }
+
+    .hero{
+      display:flex;
+      gap: 18px;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .heroText{ flex: 1 1 520px; min-width: 260px; }
+
+    .kicker{
+      color: var(--muted);
+      letter-spacing: 0.14em;
+      text-transform: lowercase;
+      font-size: 0.85rem;
+      margin: 0 0 10px;
+    }
+
+    h1{
+      font-family: "Cormorant Garamond", serif;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      font-size: clamp(2.4rem, 3.8vw, 3.6rem);
+      margin: 0 0 8px;
+    }
+
+    .roles{
+      color: var(--muted);
+      font-size: 1rem;
+      margin: 0 0 18px;
+    }
+
+    .nav{
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px 16px;
+      padding: 12px 0;
+      margin-top: 18px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: rgba(255,255,255,0.55);
+      border-radius: 14px;
+    }
+    .nav a{
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .nav a:hover{ color: var(--red); }
+
+    /* PROFILE IMAGE PLACE (uses your uploaded filename) */
+    .avatarWrap{ flex: 0 0 auto; }
+    .avatar{
+      width: 138px;
+      height: 138px;
+      border-radius: 18px;
+      object-fit: cover;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      background: rgba(42,36,32,0.04);
+    }
+
+    /* SECTION BANDS (multiple colors visible) */
+    section{ padding: 44px 0; }
+    .bandA{ background: var(--cream); border-top: 1px solid var(--line); }
+    .bandB{ background: var(--linen); border-top: 1px solid var(--line); }
+    .bandC{ background: var(--winter); border-top: 1px solid var(--line); }
+
+    h2{
+      font-family: "Cormorant Garamond", serif;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      font-size: 2.1rem;
+      margin: 0 0 14px;
+    }
+
+    .sub{
+      color: var(--muted);
+      margin: 0 0 22px;
+      max-width: 74ch;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 16px;
+    }
+
+    .card{
+      grid-column: span 6;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px 18px 16px;
+      box-shadow: var(--shadow);
+      min-height: 180px;
+    }
+    @media (max-width: 860px){ .card{ grid-column: span 12; } }
+
+    .card h3{
+      margin: 0 0 8px;
+      font-size: 1.05rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+    }
+
+    .meta{
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin: 0 0 10px;
+    }
+
+    .desc{
+      margin: 0 0 14px;
+      font-size: 0.98rem;
+    }
+
+    .tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap: 8px;
+      margin: 0 0 14px;
+      padding: 0;
+      list-style:none;
+    }
+    .tags li{
+      color: var(--muted);
+      font-size: 0.82rem;
+      border: 1px solid var(--line);
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(181,139,42,0.08);
+    }
+
+    .btns{
+      display:flex;
+      flex-wrap:wrap;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      padding: 9px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      color: var(--text);
+      background: linear-gradient(180deg, rgba(139,31,47,0.08), rgba(181,139,42,0.10));
+      font-size: 0.92rem;
+    }
+    .btn:hover{
+      background: linear-gradient(180deg, rgba(139,31,47,0.12), rgba(181,139,42,0.14));
+      color: var(--text);
+    }
+
+    .panel{
+      background: rgba(255,255,255,0.78);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .twoCol{
+      display:grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 16px;
+      align-items: start;
+    }
+    @media (max-width: 860px){ .twoCol{ grid-template-columns: 1fr; } }
+
+    .list{
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+    .list li{ margin: 6px 0; }
+
+    .embed{
+      margin-top: 12px;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: rgba(42,36,32,0.05);
+    }
+    .embed iframe{
+      width: 100%;
+      height: 315px;
+      border: 0;
+      display:block;
+    }
+
+    footer{
+      border-top: 1px solid var(--line);
+      padding: 26px 0 40px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      background: var(--cream);
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="wrap">
+      <div class="hero">
+        <div class="heroText">
+          <p class="kicker">film / art</p>
+          <h1>Viktoria Domnikova</h1>
+          <p class="roles">Artist · Director · Script Supervisor</p>
+
+          <nav class="nav" aria-label="Primary navigation">
+            <a href="#films">Films</a>
+            <a href="#services">Services</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+          </nav>
+        </div>
+
+        <div class="avatarWrap">
+          <!-- This uses your uploaded filename exactly -->
+          <img class="avatar" src="IMG-20250127-WA0023.jpg" alt="Viktoria Domnikova portrait" />
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="films" class="bandA">
+    <div class="wrap">
+      <h2>Films</h2>
+      <p class="sub">Add Vimeo/YouTube links (and optionally embed the player inside each film card).</p>
+
+      <div class="grid">
+        <!-- FILM CARD — duplicate this <article> for each film -->
+        <article class="card">
+          <h3>Film Title One</h3>
+          <p class="meta">Year · Short / Feature · Role(s): Director, Script Supervisor</p>
+          <p class="desc">One or two sentences: mood, theme, logline.</p>
+
+          <ul class="tags">
+            <li>Poetic</li>
+            <li>Intimate</li>
+            <li>Winter-light</li>
+          </ul>
+
+          <div class="btns">
+            <a class="btn" href="https://vimeo.com/" target="_blank" rel="noopener noreferrer">Watch on Vimeo</a>
+            <a class="btn" href="https://youtube.com/" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+          </div>
+
+          <!-- OPTIONAL EMBED:
+               YouTube: https://www.youtube.com/embed/VIDEO_ID
+               Vimeo:   https://player.vimeo.com/video/VIDEO_ID
+          -->
+          <!--
+          <div class="embed">
+            <iframe
+              src="https://player.vimeo.com/video/VIDEO_ID"
+              title="Film Title One"
+              allow="autoplay; fullscreen; picture-in-picture"
+              allowfullscreen></iframe>
+          </div>
+          -->
+        </article>
+
+        <article class="card">
+          <h3>Film Title Two</h3>
+          <p class="meta">Year · Short · Role(s): Director</p>
+          <p class="desc">Short description. Keep it minimal and strong.</p>
+
+          <ul class="tags">
+            <li>Documentary</li>
+            <li>Warm wood</li>
+          </ul>
+
+          <div class="btns">
+            <a class="btn" href="https://vimeo.com/" target="_blank" rel="noopener noreferrer">Watch</a>
+            <a class="btn" href="#" target="_blank" rel="noopener noreferrer">Trailer</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="bandB">
+    <div class="wrap">
+      <h2>Services</h2>
+      <div class="twoCol">
+        <div class="panel">
+          <p class="sub" style="margin-top:0;">Available for selected projects.</p>
+          <ul class="list">
+            <li>Directing</li>
+            <li>Script Supervision</li>
+            <li>Creative development</li>
+            <li>Continuity & set support</li>
+          </ul>
+        </div>
+
+        <div class="panel">
+          <p class="sub" style="margin-top:0;">Links (optional)</p>
+          <ul class="list">
+            <li><a href="#" target="_blank" rel="noopener noreferrer">Vimeo</a></li>
+            <li><a href="#" target="_blank" rel="noopener noreferrer">YouTube</a></li>
+            <li><a href="#" target="_blank" rel="noopener noreferrer">IMDb</a></li>
+            <li><a href="#" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="bandC">
+    <div class="wrap">
+      <h2>About</h2>
+      <div class="panel">
+        <p class="sub" style="margin-top:0;">A short, slightly mystical artist statement.</p>
+        <p style="margin:0; max-width: 78ch;">
+          Viktoria Domnikova works where film meets intimacy — observing what people don’t say, and how silence moves.
+          Her approach is minimal, tactile, and emotionally precise.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="bandB">
+    <div class="wrap">
+      <h2>Contact</h2>
+      <div class="panel">
+        <p class="sub" style="margin-top:0;">If you’d like to collaborate, reach out.</p>
+        <p style="margin:0;">
+          <a class="btn" href="mailto:your@email.com">your@email.com</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      © <span id="y"></span> Viktoria Domnikova
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
