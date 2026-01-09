@@ -107,6 +107,31 @@
      border: 1px solid var(--line);
      box-shadow: var(--shadow);
      background: rgba(42,36,32,0.04);
+
+      .filmImage{
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 14px;
+  margin-bottom: 14px;
+  border: 1px solid var(--line);
+  box-shadow: 0 10px 24px rgba(42,36,32,0.12);
+  background: rgba(0,0,0,0.04);
+
+  /* cinematic calm */
+  transition: 
+    opacity 0.6s ease,
+    transform 0.6s ease,
+    filter 0.6s ease;
+}
+
+/* very subtle hover */
+.card:hover .filmImage{
+  opacity: 0.92;
+  transform: scale(1.01);
+  filter: brightness(1.02);
+}
+
 }
     /* SECTION BANDS (multiple colors visible) */
     section{ padding: 44px 0; }
@@ -429,6 +454,7 @@
   </script>
 </body>
 </html>
+
 
 
 
