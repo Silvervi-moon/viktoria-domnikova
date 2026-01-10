@@ -99,14 +99,15 @@
     .nav a:hover{ color: var(--red); }
     /* PROFILE IMAGE PLACE (uses your uploaded filename) */
     .avatarWrap{ flex: 0 0 auto; }
-    .avatar{
-     width: 200px;
-     height: 260px;
-     border-radius: 22px;
-     object-fit: cover;
-     border: 1px solid var(--line);
-     box-shadow: var(--shadow);
-     background: rgba(42,36,32,0.04);
+   .avatar{
+  width: 200px;
+  height: 260px;
+  border-radius: 22px;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  background: rgba(42,36,32,0.04);
+}
 
       .filmImage{
   width: 100%;
@@ -159,7 +160,9 @@
       rgba(0,0,0,0.03) 1px,
       transparent 1px,
       transparent 7px
-    )
+    ),
+    var(--linen);
+  border-top: 1px solid var(--line);
 }
 
 .bandC{
@@ -171,7 +174,8 @@
       rgba(0,0,0,0.025) 1px,
       transparent 1px,
       transparent 8px
-    )
+    ),
+    var(--winter);
   border-top: 1px solid var(--line);
 }
     h2{
@@ -392,7 +396,43 @@
       <h2>Films</h2>
       <p class="sub">Add Vimeo/YouTube links (and optionally embed the player inside each film card).</p>
 
-      <div class="grid">
+      <div class="grid"><h2 style="margin-top:42px;">Filmography</h2>
+<p class="sub">Selected credits (compact overview).</p>
+
+<div class="filmography">
+  <div class="filmYearBlock">
+    <h3 class="filmYear">2025</h3>
+
+    <div class="filmEntry">
+      <p class="filmTitle">The Flight</p>
+      <p class="filmMeta">Short · Drama</p>
+      <p class="filmRoleLine">Role(s): Director · Script Supervisor</p>
+      <p class="filmMeta">Link: <a href="https://vimeo.com/1152035790?share=copy" target="_blank" rel="noopener noreferrer">Vimeo</a></p>
+    </div>
+  </div>
+
+  <div class="filmYearBlock">
+    <h3 class="filmYear">2024</h3>
+
+    <div class="filmEntry">
+      <p class="filmTitle">Title (Project)</p>
+      <p class="filmMeta">Format · Genre</p>
+      <p class="filmRoleLine">Role(s): …</p>
+    </div>
+  </div>
+
+  <div class="filmYearBlock">
+    <h3 class="filmYear">2023</h3>
+
+    <div class="filmEntry">
+      <p class="filmTitle">Title (Project)</p>
+      <p class="filmMeta">Format · Genre</p>
+      <p class="filmRoleLine">Role(s): …</p>
+    </div>
+  </div>
+</div>
+</div>
+</section>
         <!-- FILM CARD — duplicate this <article> for each film -->
         <article class="card">
           <h3>The Flight</h3>
@@ -477,7 +517,7 @@
       <div class="panel">
         <p class="sub" style="margin-top:0;">A short, slightly mystical artist statement.</p>
         <p style="margin:0; max-width: 78ch;">
-          Viktoria Domnikova works where film meets intimacy — observing what people don’t say, and how silence moves.
+          Viktoria Domnikova works where film meets passion and intimacy — observing what people don’t say, and how silence moves.
           Her approach is minimal, tactile, and emotionally precise.
         </p>
       </div>
@@ -506,6 +546,7 @@
   </script>
 </body>
 </html>
+
 
 
 
