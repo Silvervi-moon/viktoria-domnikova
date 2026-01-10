@@ -323,50 +323,55 @@
     }
 
     @media (max-width: 900px){
-      .filmography{ grid-template-columns: 1fr; }
-    }
+    /* Filmography — simple columns (like the reference site) */
+.filmographySimple{
+  margin-top: 10px;
+}
 
-    .filmYearBlock{
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      background: rgba(255,255,255,0.72);
-      box-shadow: var(--shadow);
-      padding: 16px 16px 12px;
-    }
+.filmographyColumns{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  align-items: start;
+}
 
-    .filmEntry{
-      padding: 10px 0;
-      border-top: 1px solid rgba(42,36,32,0.10);
-    }
+@media (max-width: 900px){
+  .filmographyColumns{ grid-template-columns: 1fr; }
+}
 
-    .filmEntry:first-child{
-      border-top: 0;
-      padding-top: 2px;
-    }
+.filmogEntry{
+  margin: 0 0 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(42,36,32,0.10);
+}
 
-    .filmYear{
-      font-family: "Cormorant Garamond", serif;
-      font-size: 1.4rem;
-      margin: 0 0 8px;
-      letter-spacing: 0.02em;
-    }
+.filmogEntry:last-child{
+  border-bottom: 0;
+  padding-bottom: 0;
+}
 
-    .filmTitle{
-      font-weight: 600;
-      letter-spacing: 0.01em;
-      margin: 0;
-    }
+.filmogYear{
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin: 0 0 2px;
+}
 
-    .filmMeta{
-      margin: 4px 0 0;
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
+.filmogTitle{
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
 
-    .filmRoleLine{
-      margin: 6px 0 0;
-      color: var(--muted);
-      font-size: 0.92rem;
+.filmogLine{
+  margin: 3px 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.filmogLine strong{
+  color: var(--text);
+  font-weight: 600;
+}
     }
 
     footer{
@@ -551,3 +556,4 @@
   </script>
 </body>
 </html>
+
