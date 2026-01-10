@@ -18,7 +18,7 @@
       --red: #8b1f2f;     /* mystical burgundy */
       --gold: #b58b2a;
 
-      --text: #2a2420;    /* warm espresso for readability */
+      --text: #2a2420;    /* warm espresso */
       --muted: #5f564e;
       --line: rgba(42,36,32,0.14);
       --shadow: 0 14px 34px rgba(42,36,32,0.10);
@@ -26,13 +26,14 @@
 
     *{ box-sizing:border-box; }
     html{ scroll-behavior:smooth; }
+
     body{
       margin:0;
       font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
       background:
-        radial-gradient(1000px 700px at 10% -10%, rgba(181,139,42,0.12), transparent 55%),
-        radial-gradient(1000px 700px at 95% 5%, rgba(139,31,47,0.10), transparent 55%),
-        radial-gradient(900px 650px at 70% 120%, rgba(176,137,104,0.12), transparent 55%),
+        radial-gradient(1000px 700px at 10% -10%, rgba(181,139,42,0.10), transparent 55%),
+        radial-gradient(1000px 700px at 95% 5%, rgba(139,31,47,0.08), transparent 55%),
+        radial-gradient(900px 650px at 70% 120%, rgba(176,137,104,0.10), transparent 55%),
         var(--cream);
       color: var(--text);
       line-height:1.7;
@@ -47,7 +48,7 @@
       padding: 0 20px;
     }
 
-    /* HEADER (different background color) */
+    /* HEADER */
     header{
       background: linear-gradient(135deg, rgba(238,243,246,0.98), rgba(242,235,225,0.98));
       border-bottom: 1px solid var(--line);
@@ -90,10 +91,9 @@
       display:flex;
       flex-wrap:wrap;
       gap: 12px 16px;
-      padding: 12px 0;
+      padding: 12px 14px;
       margin-top: 18px;
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
+      border: 1px solid var(--line);
       background: rgba(255,255,255,0.55);
       border-radius: 14px;
     }
@@ -102,14 +102,13 @@
       color: var(--muted);
       font-size: 0.95rem;
     }
-
     .nav a:hover{ color: var(--red); }
 
     /* PROFILE IMAGE */
     .avatarWrap{ flex: 0 0 auto; }
     .avatar{
-      width: 200px;
-      height: 260px;
+      width: 220px;
+      height: 290px;
       border-radius: 22px;
       object-fit: cover;
       border: 1px solid var(--line);
@@ -117,48 +116,27 @@
       background: rgba(42,36,32,0.04);
     }
 
-    /* SECTION BANDS */
+    /* SECTION BANDS (subtle “film-like” but minimal) */
     section{ padding: 44px 0; }
 
-    /* Film-like, subtle */
     .bandA{
       background:
-        linear-gradient(180deg, rgba(0,0,0,0.04), rgba(0,0,0,0.02)),
-        repeating-linear-gradient(
-          90deg,
-          rgba(0,0,0,0.02),
-          rgba(0,0,0,0.02) 1px,
-          transparent 1px,
-          transparent 6px
-        ),
+        linear-gradient(180deg, rgba(0,0,0,0.03), rgba(0,0,0,0.015)),
+        repeating-linear-gradient(90deg, rgba(0,0,0,0.018), rgba(0,0,0,0.018) 1px, transparent 1px, transparent 7px),
         var(--cream);
       border-top: 1px solid var(--line);
     }
 
     .bandB{
       background:
-        radial-gradient(circle at 50% 20%, rgba(0,0,0,0.08), transparent 55%),
-        repeating-linear-gradient(
-          90deg,
-          rgba(0,0,0,0.03),
-          rgba(0,0,0,0.03) 1px,
-          transparent 1px,
-          transparent 7px
-        ),
+        radial-gradient(circle at 50% 15%, rgba(0,0,0,0.06), transparent 55%),
         var(--linen);
       border-top: 1px solid var(--line);
     }
 
     .bandC{
       background:
-        linear-gradient(180deg, rgba(0,0,0,0.06), transparent 40%),
-        repeating-linear-gradient(
-          90deg,
-          rgba(0,0,0,0.025),
-          rgba(0,0,0,0.025) 1px,
-          transparent 1px,
-          transparent 8px
-        ),
+        linear-gradient(180deg, rgba(0,0,0,0.04), transparent 45%),
         var(--winter);
       border-top: 1px solid var(--line);
     }
@@ -177,6 +155,7 @@
       max-width: 74ch;
     }
 
+    /* FILM CARDS */
     .grid{
       display:grid;
       grid-template-columns: repeat(12, 1fr);
@@ -192,13 +171,12 @@
       box-shadow: var(--shadow);
       min-height: 180px;
     }
-
     @media (max-width: 860px){ .card{ grid-column: span 12; } }
 
     .card h3{
-      margin: 0 0 8px;
-      font-size: 1.05rem;
-      font-weight: 500;
+      margin: 0 0 6px;
+      font-size: 1.08rem;
+      font-weight: 600;
       letter-spacing: 0.01em;
     }
 
@@ -211,24 +189,6 @@
     .desc{
       margin: 0 0 14px;
       font-size: 0.98rem;
-    }
-
-    .tags{
-      display:flex;
-      flex-wrap:wrap;
-      gap: 8px;
-      margin: 0 0 14px;
-      padding: 0;
-      list-style:none;
-    }
-
-    .tags li{
-      color: var(--muted);
-      font-size: 0.82rem;
-      border: 1px solid var(--line);
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: rgba(181,139,42,0.08);
     }
 
     .btns{
@@ -249,53 +209,12 @@
       background: linear-gradient(180deg, rgba(139,31,47,0.08), rgba(181,139,42,0.10));
       font-size: 0.92rem;
     }
-
     .btn:hover{
       background: linear-gradient(180deg, rgba(139,31,47,0.12), rgba(181,139,42,0.14));
       color: var(--text);
     }
 
-    .panel{
-      background: rgba(255,255,255,0.78);
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 18px;
-      box-shadow: var(--shadow);
-    }
-
-    .twoCol{
-      display:grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 16px;
-      align-items: start;
-    }
-
-    @media (max-width: 860px){ .twoCol{ grid-template-columns: 1fr; } }
-
-    .list{
-      margin: 0;
-      padding-left: 18px;
-      color: var(--muted);
-    }
-
-    .list li{ margin: 6px 0; }
-
-    .embed{
-      margin-top: 12px;
-      border-radius: 14px;
-      overflow: hidden;
-      border: 1px solid var(--line);
-      background: rgba(42,36,32,0.05);
-    }
-
-    .embed iframe{
-      width: 100%;
-      height: 315px;
-      border: 0;
-      display:block;
-    }
-
-    /* Film still images */
+    /* Film still images (hover fade subtle) */
     .filmImage{
       width: 100%;
       aspect-ratio: 16 / 9;
@@ -307,118 +226,47 @@
       background: rgba(0,0,0,0.04);
       transition: opacity 0.6s ease, transform 0.6s ease, filter 0.6s ease;
     }
-
     .card:hover .filmImage{
       opacity: 0.92;
       transform: scale(1.01);
       filter: brightness(1.02);
     }
 
-    /* Filmography layout */
-    .filmography{
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-      margin-top: 18px;
+    /* FILMOGRAPHY LIST (compact, year first, bold first line) */
+    .filmList{
+      margin: 0;
+      padding-left: 1.2rem;
     }
 
-    @media (max-width: 900px){
-    /* Filmography — simple columns (like the reference site) */
-.filmographySimple{
-  margin-top: 10px;
-}
-
-.filmographyColumns{
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;
-  align-items: start;
-}
-
-@media (max-width: 900px){
-  .filmographyColumns{ grid-template-columns: 1fr; }
-}
-
-.filmogEntry{
-  margin: 0 0 16px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid rgba(42,36,32,0.10);
-}
-
-.filmogEntry:last-child{
-  border-bottom: 0;
-  padding-bottom: 0;
-}
-
-.filmogYear{
-  color: var(--muted);
-  font-size: 0.95rem;
-  margin: 0 0 2px;
-}
-
-.filmogTitle{
-  margin: 0;
-  font-weight: 700;
-  letter-spacing: 0.01em;
-}
-
-.filmogLine{
-  margin: 3px 0 0;
-  color: var(--muted);
-  font-size: 0.95rem;
-}
-
-.filmogLine strong{
-  color: var(--text);
-  font-weight: 600;
-}
-      .filmList{
-  margin: 0;
-  padding-left: 1.2rem;
-}
-
-.filmList li{
-  margin: 0 0 16px;
-  padding-bottom: 14px;
-  border-bottom: 1px solid rgba(42,36,32,0.10);
-}
-
-.filmList li:last-child{
-  border-bottom: 0;
-  padding-bottom: 0;
-}
-
-.filmTitleLine{
-  margin: 0;
-  font-weight: 700;
-  letter-spacing: 0.01em;
-}
-
-.filmMetaLine{
-  margin: 4px 0 0;
-  color: var(--muted);
-  font-size: 0.95rem;
-}
-
-.filmRolePills{
-  margin: 8px 0 0;
-  padding: 0;
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.filmRolePills li{
-  margin: 0;
-  padding: 4px 10px;
-  border-radius: 999px;
-  border: 1px solid var(--line);
-  background: rgba(181,139,42,0.08);
-  color: var(--muted);
-  font-size: 0.82rem;
-}
+    .filmList li{
+      margin: 0 0 16px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid rgba(42,36,32,0.10);
     }
+
+    .filmList li:last-child{
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .filmTitleLine{
+      margin: 0;
+      font-weight: 700; /* makes mobile first line look great */
+      letter-spacing: 0.01em;
+    }
+
+    .filmMetaLine{
+      margin: 5px 0 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .roleLine{
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .roleLine strong{ color: var(--text); font-weight: 600; }
 
     footer{
       border-top: 1px solid var(--line);
@@ -441,10 +289,10 @@
         <div class="heroText">
           <p class="kicker">film / art</p>
           <h1>Viktoria Domnikova</h1>
-          <p class="roles">Artist · Director · Script Supervisor</p>
+          <p class="roles">Director · Script Supervisor · Assistant Director</p>
 
           <nav class="nav" aria-label="Primary navigation">
-            <a href="#films">Films</a>
+            <a href="#films">Projects</a>
             <a href="#filmography">Filmography</a>
             <a href="#services">Services</a>
             <a href="#about">About</a>
@@ -455,217 +303,166 @@
     </div>
   </header>
 
+  <!-- PROJECTS (most important: show work first, clean and direct) -->
   <section id="films" class="bandA">
     <div class="wrap">
-      <h2>Films</h2>
-      <p class="sub">Add Vimeo/YouTube links (and optionally embed the player inside each film card).</p>
+      <h2>Projects</h2>
+      <p class="sub">Selected directing projects. Click to watch.</p>
 
       <div class="grid">
+        <!-- 1) Widerstand (WIP) -->
         <article class="card">
-          <!-- Optional still image: upload a file like "" then uncomment:
-          <img src="the-flight.jpg" alt="Film still from The Flight" class="filmImage" />
-          -->
-          <h3>The Flight</h3>
-          <p class="meta">Year · Short · Role(s): Director, Script Supervisor</p>
-          <p class="desc">One or two sentences: mood, theme, logline.</p>
+          <!-- Upload a thumbnail file (e.g. widerstand.jpg) into the repo, then set src: -->
+          <img class="filmImage" src="widerstand.jpg" alt="Widerstand — still / poster" />
 
-          <ul class="tags">
-            <li>Short</li>
-            <li>Drama</li>
-          </ul>
+          <h3>Widerstand <span style="font-weight:500; color:var(--muted);">(Work in progress)</span></h3>
+          <p class="meta">2019 · WIP · Role(s): Director</p>
+          <p class="desc">A short, calm logline here. One sentence is enough.</p>
+
+          <div class="btns">
+            <a class="btn" href="#" target="_blank" rel="noopener noreferrer">Info / teaser (link)</a>
+          </div>
+        </article>
+
+        <!-- 2) The Flight -->
+        <article class="card">
+          <img class="filmImage" src="the-flight.jpg" alt="The Flight — still / poster" />
+
+          <h3>The Flight</h3>
+          <p class="meta">2018 · Short · Role(s): Director · Writer · Producer (self-produced)</p>
+          <p class="desc">Social drama about flight and the cost of leaving. (Replace with your final logline.)</p>
 
           <div class="btns">
             <a class="btn" href="https://vimeo.com/1152035790?share=copy" target="_blank" rel="noopener noreferrer">Watch on Vimeo</a>
-            <a class="btn" href="https://youtube.com/" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
           </div>
         </article>
 
+        <!-- 3) Saleh und Maja -->
         <article class="card">
-          <h3>Film Title Two</h3>
-          <p class="meta">Year · Short · Role(s): Director</p>
-          <p class="desc">Short description. Keep it minimal and strong.</p>
+          <img class="filmImage" src="saleh-und-maja.jpg" alt="Saleh und Maja — still / poster" />
 
-          <ul class="tags">
-            <li>Documentary</li>
-            <li>Warm wood</li>
-          </ul>
+          <h3>Saleh und Maja</h3>
+          <p class="meta">2018 · German · Romance / Comedy · Role(s): Director · Writer</p>
+          <p class="desc">A warm, human story about connection across worlds. (Replace with your final logline.)</p>
 
           <div class="btns">
-            <a class="btn" href="https://vimeo.com/" target="_blank" rel="noopener noreferrer">Watch</a>
-            <a class="btn" href="#" target="_blank" rel="noopener noreferrer">Trailer</a>
+            <!-- NOTE: Your link looks like a private/manage URL.
+                 If it doesn’t work for visitors, replace it with the public Vimeo “Share” link. -->
+            <a class="btn" href="https://vimeo.com/manage/videos/1153210080" target="_blank" rel="noopener noreferrer">Vimeo link</a>
           </div>
         </article>
       </div>
     </div>
   </section>
 
+  <!-- FILMOGRAPHY (compact list, newest first, year first, roles in one line) -->
   <section id="filmography" class="bandB">
     <div class="wrap">
       <h2>Filmography</h2>
-      <p class="sub">Selected film projects newest first (compact overview).</p>
-<ol class="filmList" start="1">
-  <li>
-    <p class="filmTitleLine">“Mein Name Akim” — ifs Köln <span class="filmMetaLine">| 2025</span></p>
+      <p class="sub">Selected credits — newest first.</p>
 
-    <ul class="filmRolePills">
-      <li>Script Supervisor</li>
-      <li>Assistant Director</li>
-      <li>Casting</li>
-    </ul>
+      <ol class="filmList" start="1">
+        <li>
+          <p class="filmTitleLine"><strong>2025 — “Mein Name Akim” — ifs Köln</strong></p>
+          <p class="roleLine"><strong>Role(s):</strong> Script Supervisor · Assistant Director · Casting</p>
+          <p class="filmMetaLine">
+            Graduation film (Dir: Aleksandr Kim). Casting support & coordination (online/e-castings), international cast care.
+            Script/continuity, dialogue & subtitle checks, RU/DE script support, post-production notes.
+          </p>
+        </li>
 
-    <p class="filmMetaLine">
-    </p>
-  </li>
+        <li>
+          <p class="filmTitleLine"><strong>2022 — “Kaffee und Kippen” — The Grandmaster Productions</strong></p>
+          <p class="roleLine"><strong>Role(s):</strong> Script Supervisor</p>
+          <p class="filmMetaLine">
+            Links:
+            <a href="https://www.imdb.com/title/tt16464102/?ref_=fn_t_2" target="_blank" rel="noopener noreferrer">IMDb</a>
+            ·
+            <a href="https://www.youtube.com/watch?v=97R5Mj7a3QA" target="_blank" rel="noopener noreferrer">YouTube</a>
+          </p>
+        </li>
 
-  <li>
-    <p class="filmTitleLine">“Kaffee und Kippen” — The Grandmaster Productions <span class="filmMetaLine">| 07/2022</span></p>
-    https://www.imdb.com/title/tt16464102/?ref_=fn_t_2   
-    https://www.youtube.com/watch?v=97R5Mj7a3QA
+        <li>
+          <p class="filmTitleLine"><strong>2022 — “Karl” — Calimedia & Chemnitzer Filmwerkstatt e.V.</strong></p>
+          <p class="roleLine"><strong>Role(s):</strong> Assistant Director</p>
+          <p class="filmMetaLine">
+            Links:
+            <a href="https://www.imdb.com/title/tt13866470/fullcredits/" target="_blank" rel="noopener noreferrer">IMDb</a>
+          </p>
+        </li>
 
-    <ul class="filmRolePills">
-      <li>Script Supervisor</li>
-    </ul>
+        <li>
+          <p class="filmTitleLine"><strong>2018 — “Saleh und Maja” — TU Chemnitz / Chemnitzer Filmwerkstatt e.V. / CWE</strong></p>
+          <p class="roleLine"><strong>Role(s):</strong> Director · Writer · Project Lead</p>
+          <p class="filmMetaLine">
+            Intercultural graduation project (80+ participants). Awarded 1st Chemnitz Citizen Prize; nominated for the German Engagement Award.
+          </p>
+        </li>
 
-    <p class="filmMetaLine">
-    </p>
-  </li>
+        <li>
+          <p class="filmTitleLine"><strong>2018 — “The Flight” — Self-produced</strong></p>
+          <p class="roleLine"><strong>Role(s):</strong> Director · Writer · Producer</p>
+          <p class="filmMetaLine">
+            Link:
+            <a href="https://vimeo.com/1152035790?share=copy" target="_blank" rel="noopener noreferrer">Vimeo</a>
+          </p>
+        </li>
 
-  <li>
-    <p class="filmTitleLine">“Karl” — Calimedia & Chemnitzer Filmwerkstatt e.V. <span class="filmMetaLine">| 2022</span></p>
-    https://www.imdb.com/title/tt13866470/fullcredits/
+        <li>
+          <p class="filmTitleLine"><strong>2017 — “Drunk in Love” — Short Film (15 min)</strong></p>
+          <p class="roleLine"><strong>Role(s):</strong> Script Supervisor</p>
+          <p class="filmMetaLine">
+            Director/Writer: Johannes Prondzinsky · Cast: Gabriel Ziemer · Karina Geipel · Arina Ernst
+          </p>
+          <p class="filmMetaLine">
+            Links:
+            <a href="https://www.imdb.com/de/title/tt7305596/" target="_blank" rel="noopener noreferrer">IMDb</a>
+            ·
+            <a href="https://youtu.be/2OXPmTntjCU?si=qNUb4jI5wMdCWz3K" target="_blank" rel="noopener noreferrer">YouTube</a>
+          </p>
+        </li>
 
-    <ul class="filmRolePills">
-      <li>Assistant Director</li>
-    </ul>
+        <li>
+          <p class="filmTitleLine"><strong>2017 — “Irgendwer” — In One Media</strong></p>
+          <p class="roleLine"><strong>Role(s):</strong> Production Assistant</p>
+          <p class="filmMetaLine">
+            Insight into professional set workflows; support with set organization and production tasks.
+          </p>
+        </li>
 
-    <p class="filmMetaLine">
-    </p>
-  </li>
-
-  <li>
-  <p class="filmTitleLine">
-    “Drunk in Love” — Short Film
-    <span class="filmMetaLine">| 2017 · 15 min</span>
-  </p>
-
-  <ul class="filmRolePills">
-    <li>Script Supervisor</li>
-  </ul>
-
-  <p class="filmMetaLine">
-  </p>
-
-  <p class="filmMetaLine">
-    <a href="https://www.imdb.com/de/title/tt7305596/" target="_blank" rel="noopener noreferrer">IMDb</a>
-    ·
-    <a href="https://youtu.be/2OXPmTntjCU?si=qNUb4jI5wMdCWz3K" target="_blank" rel="noopener noreferrer">YouTube</a>
-  </p>
-</li>
-
-  <li>
-    <p class="filmTitleLine">“Saleh und Maja” | TU Chemnitz | Chemnitzer Filmwerkstatt e.V. | CWE - Stadt Chemnitz <span class="filmMetaLine">| 2018</span></p>
-
-    <ul class="filmRolePills">
-      <li>Director</li>
-      <li>Writer</li>
-      <li>Project Lead</li>
-    </ul>
-
-    <p class="filmMetaLine">
-    </p>
-  </li>
-
-  <li>
-    <p class="filmTitleLine">“The Flight” | Self-produced | Chemnitzer Filmwerkstatt e.V. <span class="filmMetaLine">| 06/2017 – 01/2018</span></p>
-
-    <ul class="filmRolePills">
-      <li>Director</li>
-      <li>Writer</li>
-      <li>Producer</li>
-    </ul>
-
-    <p class="filmMetaLine">
-    </p>
-  </li>
-
-  <li>
-    <p class="filmTitleLine">“Irgendwer” | In One Media <span class="filmMetaLine">| 02/2017</span></p>
-
-    <ul class="filmRolePills">
-      <li>Production Assistant</li>
-    </ul>
-
-    <p class="filmMetaLine">
-    </p>
-  </li>
-
-  <li>
-    <p class="filmTitleLine">“Occursus Blue” | Self-produced (Vancouver) <span class="filmMetaLine">| 12/2016 – 02/2017</span></p>
-
-    <ul class="filmRolePills">
-      <li>Director</li><li>Writer</li><li>Producer</li>
-      <a href="https://youtu.be/68eTa9qdWIM?si=jK_tTW1LA6qCnjBP" target="_blank" rel="noopener noreferrer">YouTube</a>
-    </ul>
-
-    <p class="filmMetaLine">
-    </p>
-  </li>
-</ol>
-      <div class="filmography">
-        <div class="filmYearBlock">
-          <h3 class="filmYear">2025</h3>
-
-          <div class="filmEntry">
-            <p class="filmTitle">The Flight</p>
-            <p class="filmMeta">Short · Drama</p>
-            <p class="filmRoleLine">Role(s): Director · Script Supervisor</p>
-            <p class="filmMeta">Link: <a href="https://vimeo.com/1152035790?share=copy" target="_blank" rel="noopener noreferrer">Vimeo</a></p>
-          </div>
-        </div>
-
-        <div class="filmYearBlock">
-          <h3 class="filmYear">2024</h3>
-
-          <div class="filmEntry">
-            <p class="filmTitle">Title (Project)</p>
-            <p class="filmMeta">Format · Genre</p>
-            <p class="filmRoleLine">Role(s): …</p>
-          </div>
-        </div>
-
-        <div class="filmYearBlock">
-          <h3 class="filmYear">2023</h3>
-
-          <div class="filmEntry">
-            <p class="filmTitle">Title (Project)</p>
-            <p class="filmMeta">Format · Genre</p>
-            <p class="filmRoleLine">Role(s): …</p>
-          </div>
-        </div>
-      </div>
+        <li>
+          <p class="filmTitleLine"><strong>2017 — “Occursus Blue” — Self-produced (Vancouver)</strong></p>
+          <p class="roleLine"><strong>Role(s):</strong> Director · Writer · Producer</p>
+          <p class="filmMetaLine">
+            Link:
+            <a href="https://youtu.be/68eTa9qdWIM?si=jK_tTW1LA6qCnjBP" target="_blank" rel="noopener noreferrer">YouTube</a>
+          </p>
+        </li>
+      </ol>
     </div>
   </section>
 
-  <section id="services" class="bandB">
+  <section id="services" class="bandC">
     <div class="wrap">
       <h2>Services</h2>
+      <p class="sub">Clear, simple offering — so people immediately know what you do.</p>
+
       <div class="twoCol">
         <div class="panel">
-          <p class="sub" style="margin-top:0;">Available for selected projects.</p>
           <ul class="list">
-            <li>Directing</li>
-            <li>Script Supervision</li>
-            <li>Creative development</li>
-            <li>Continuity & set support</li>
+            <li>Directing (selected projects)</li>
+            <li>Script Supervision / Continuity</li>
+            <li>Assistant Directing</li>
+            <li>Casting support & coordination</li>
           </ul>
         </div>
 
         <div class="panel">
-          <p class="sub" style="margin-top:0;">Links (optional)</p>
+          <p class="sub" style="margin-top:0;">Links</p>
           <ul class="list">
             <li><a href="#" target="_blank" rel="noopener noreferrer">Vimeo</a></li>
-            <li><a href="#" target="_blank" rel="noopener noreferrer">YouTube</a></li>
             <li><a href="#" target="_blank" rel="noopener noreferrer">IMDb</a></li>
+            <li><a href="#" target="_blank" rel="noopener noreferrer">YouTube</a></li>
             <li><a href="#" target="_blank" rel="noopener noreferrer">Instagram</a></li>
           </ul>
         </div>
@@ -673,24 +470,23 @@
     </div>
   </section>
 
-  <section id="about" class="bandC">
+  <section id="about" class="bandB">
     <div class="wrap">
       <h2>About</h2>
       <div class="panel">
-        <p class="sub" style="margin-top:0;">A short, slightly mystical artist statement.</p>
         <p style="margin:0; max-width: 78ch;">
-          Viktoria Domnikova works where film meets passion and intimacy — observing what people don’t say, and how silence moves.
+          Viktoria Domnikova works where film meets intimacy — observing what people don’t say, and how silence moves.
           Her approach is minimal, tactile, and emotionally precise.
         </p>
       </div>
     </div>
   </section>
 
-  <section id="contact" class="bandB">
+  <section id="contact" class="bandC">
     <div class="wrap">
       <h2>Contact</h2>
       <div class="panel">
-        <p class="sub" style="margin-top:0;">If you’d like to collaborate, reach out.</p>
+        <p class="sub" style="margin-top:0;">For collaborations, please reach out.</p>
         <p style="margin:0;">
           <a class="btn" href="mailto:your@email.com">your@email.com</a>
         </p>
@@ -709,11 +505,3 @@
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
