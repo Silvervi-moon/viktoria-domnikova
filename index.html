@@ -179,15 +179,25 @@
       color: inherit;
     }
 
-    .posterImg{
-      width: 100%;
-      aspect-ratio: 2 / 3;      /* poster ratio */
-      object-fit: cover;
-      display:block;
-      transform: scale(1.001);
-      transition: opacity .7s ease, transform .7s ease, filter .7s ease;
-      announced: none;
-    }
+ .posterImg{
+  width: 100%;
+  max-width: 260px;          /* controls visual size */
+  aspect-ratio: 2 / 3;      /* classic poster ratio */
+  object-fit: cover;
+  border-radius: 16px;
+  margin: 0 auto 16px;      /* center poster */
+  display: block;
+  border: 1px solid var(--line);
+  box-shadow: 0 12px 26px rgba(42,36,32,0.14);
+  background: rgba(0,0,0,0.04);
+  transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.card:hover .posterImg{
+  transform: scale(1.015);
+  filter: brightness(1.02);
+}
+2️⃣ Update the <img> class in each card
 
     /* very subtle hover */
     .posterLink:hover .posterImg{
@@ -556,6 +566,7 @@
   </script>
 </body>
 </html>
+
 
 
 
