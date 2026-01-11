@@ -155,80 +155,46 @@
       max-width: 74ch;
     }
 
-    /* PROJECT POSTER GRID */
-   /* POSTER GRID (row of posters, wraps on smaller screens) */
+/* PROJECT GRID (clean, professional, like before) */
 .grid{
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 18px;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 16px;
   align-items: start;
 }
 
-/* POSTER CARD (the card itself is the poster format) */
+/* Cards (same vibe as before) */
 .card{
+  grid-column: span 6;
   background: var(--white);
   border: 1px solid var(--line);
   border-radius: 18px;
+  padding: 18px 18px 16px;
   box-shadow: var(--shadow);
-  overflow: hidden;
-
-  /* poster shape */
-  aspect-ratio: 2 / 3;
-
-  /* makes content layout stable */
-  display: flex;
-  flex-direction: column;
 }
 
-/* POSTER IMAGE fills the card */
+@media (max-width: 860px){
+  .card{ grid-column: span 12; }
+}
+
+/* Poster inside card: centered, slightly smaller, NOT narrow */
 .posterImg{
-  width: 100%;
-  height: 100%;
+  width: min(92%, 320px);   /* slightly smaller than full width */
+  aspect-ratio: 2 / 3;      /* poster shape */
   object-fit: cover;
   display: block;
-
-  /* subtle hover */
-  transition: transform 0.6s ease, filter 0.6s ease, opacity 0.6s ease;
+  margin: 0 auto 14px;      /* centered */
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  box-shadow: 0 10px 24px rgba(42,36,32,0.12);
+  background: rgba(0,0,0,0.04);
+  transition: opacity 0.6s ease, transform 0.6s ease, filter 0.6s ease;
 }
 
 .card:hover .posterImg{
-  transform: scale(1.02);
-  filter: brightness(1.03);
-  opacity: 0.98;
-}
-
-/* OPTIONAL: text overlay at bottom (clean, cinematic) */
-.posterInfo{
-  position: absolute;
-  inset: auto 0 0 0;
-  padding: 14px 14px 12px;
-  background: linear-gradient(180deg, transparent, rgba(0,0,0,0.60));
-  color: #fff;
-}
-
-.posterTitle{
-  margin: 0;
-  font-weight: 600;
-  font-size: 1rem;
-  line-height: 1.25;
-}
-
-.posterMeta{
-  margin: 6px 0 0;
-  font-size: 0.9rem;
-  opacity: 0.9;
-}
-
-/* make card a positioned container if you use overlay text */
-.card.poster{
-  position: relative;
-}
-
-/* Bigger posters (20–30% bigger): increase min column width */
-@media (min-width: 900px){
-  .grid{
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  }
+  opacity: 0.95;
+  transform: scale(1.01);
+  filter: brightness(1.02);
 }
     /* Optional tiny label for WIP */
     .badge{
@@ -566,6 +532,7 @@
   </script>
 </body>
 </html>
+
 
 
 
