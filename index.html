@@ -155,49 +155,86 @@
       max-width: 74ch;
     }
 
-    /* FILM CARDS */
+    /* PROJECT POSTER GRID */
     .grid{
       display:grid;
       grid-template-columns: repeat(12, 1fr);
       gap: 16px;
     }
 
+    /* Poster cards (each card IS a poster) */
     .card{
       grid-column: span 6;
-      background: var(--white);
-      border: 1px solid var(--line);
       border-radius: 18px;
-      padding: 18px 18px 16px;
+      overflow: hidden;
+      border: 1px solid var(--line);
       box-shadow: var(--shadow);
-      min-height: 180px;
+      background: rgba(255,255,255,0.35);
     }
     @media (max-width: 860px){ .card{ grid-column: span 12; } }
 
-    .card h3{
-      margin: 0 0 6px;
-      font-size: 1.08rem;
-      font-weight: 600;
+    .posterLink{
+      display:block;
+      position: relative;
+      color: inherit;
+    }
+
+    .posterImg{
+      width: 100%;
+      aspect-ratio: 2 / 3;      /* poster ratio */
+      object-fit: cover;
+      display:block;
+      transform: scale(1.001);
+      transition: opacity .7s ease, transform .7s ease, filter .7s ease;
+      announced: none;
+    }
+
+    /* very subtle hover */
+    .posterLink:hover .posterImg{
+      opacity: .93;
+      transform: scale(1.01);
+      filter: contrast(1.03) brightness(1.02);
+    }
+
+    /* Minimal overlay at bottom */
+    .posterOverlay{
+      position:absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 14px 14px 12px;
+      background: linear-gradient(180deg, transparent, rgba(0,0,0,0.62));
+      color: rgba(255,255,255,0.96);
+    }
+
+    .posterTitle{
+      margin: 0;
+      font-weight: 650;
       letter-spacing: 0.01em;
+      font-size: 1.05rem;
     }
 
-    .meta{
-      color: var(--muted);
+    .posterMeta{
+      margin: 4px 0 0;
       font-size: 0.92rem;
-      margin: 0 0 10px;
+      opacity: 0.88;
     }
 
-    .desc{
-      margin: 0 0 14px;
-      font-size: 0.98rem;
+    /* Optional tiny label for WIP */
+    .badge{
+      display:inline-block;
+      margin-left: 8px;
+      font-size: 0.80rem;
+      letter-spacing: 0.03em;
+      padding: 3px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.22);
+      background: rgba(181,139,42,0.16);
+      color: rgba(255,255,255,0.95);
+      vertical-align: middle;
     }
 
-    .btns{
-      display:flex;
-      flex-wrap:wrap;
-      gap: 10px;
-      margin-top: 8px;
-    }
-
+    /* Buttons (used elsewhere, e.g. contact) */
     .btn{
       display:inline-flex;
       align-items:center;
@@ -212,24 +249,6 @@
     .btn:hover{
       background: linear-gradient(180deg, rgba(139,31,47,0.12), rgba(181,139,42,0.14));
       color: var(--text);
-    }
-
-    /* Film still images (hover fade subtle) */
-    .filmImage{
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      object-fit: cover;
-      border-radius: 14px;
-      margin-bottom: 14px;
-      border: 1px solid var(--line);
-      box-shadow: 0 10px 24px rgba(42,36,32,0.12);
-      background: rgba(0,0,0,0.04);
-      transition: opacity 0.6s ease, transform 0.6s ease, filter 0.6s ease;
-    }
-    .card:hover .filmImage{
-      opacity: 0.92;
-      transform: scale(1.01);
-      filter: brightness(1.02);
     }
 
     /* FILMOGRAPHY LIST (compact, year first, bold first line) */
@@ -251,7 +270,7 @@
 
     .filmTitleLine{
       margin: 0;
-      font-weight: 700; /* makes mobile first line look great */
+      font-weight: 700;
       letter-spacing: 0.01em;
     }
 
@@ -267,6 +286,30 @@
       font-size: 0.95rem;
     }
     .roleLine strong{ color: var(--text); font-weight: 600; }
+
+    /* Panels for services/about/contact */
+    .panel{
+      background: rgba(255,255,255,0.78);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .twoCol{
+      display:grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 16px;
+      align-items: start;
+    }
+    @media (max-width: 860px){ .twoCol{ grid-template-columns: 1fr; } }
+
+    .list{
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+    .list li{ margin: 6px 0; }
 
     footer{
       border-top: 1px solid var(--line);
@@ -303,67 +346,62 @@
     </div>
   </header>
 
-  <!-- PROJECTS (most important: show work first, clean and direct) -->
+  <!-- PROJECTS (poster cards) -->
   <section id="films" class="bandA">
     <div class="wrap">
       <h2>Projects</h2>
-      <p class="sub">Selected directing projects. Click to watch.</p>
+      <p class="sub">Selected directing projects. Click a poster to open the film.</p>
 
       <div class="grid">
         <!-- 1) Widerstand (WIP) -->
         <article class="card">
-          <!-- Upload a thumbnail file (e.g. widerstand.jpg) into the repo, then set src: -->
-          <img class="filmImage" src="widerstand.jpg" alt="Widerstand — still / poster" />
-
-          <h3>Widerstand <span style="font-weight:500; color:var(--muted);">(Work in progress)</span></h3>
-          <p class="meta">2019 · WIP · Role(s): Director</p>
-          <p class="desc">A short, calm logline here. One sentence is enough.</p>
-
-          <div class="btns">
-            <a class="btn" href="#" target="_blank" rel="noopener noreferrer">Info / teaser (link)</a>
-          </div>
+          <a class="posterLink" href="#" target="_blank" rel="noopener noreferrer" aria-label="Widerstand (Work in progress) — open link">
+            <!-- Upload this file to the repo (same folder as index.html): widerstand-poster.jpg -->
+            <img class="posterImg" src="widerstand-poster.jpg" alt="Widerstand — poster" />
+            <div class="posterOverlay">
+              <p class="posterTitle">Widerstand <span class="badge">Work in progress</span></p>
+              <p class="posterMeta">2019 · Role(s): Director</p>
+            </div>
+          </a>
         </article>
 
         <!-- 2) The Flight -->
         <article class="card">
-          <img class="filmImage" src="the-flight.jpg" alt="The Flight — still / poster" />
-
-          <h3>The Flight</h3>
-          <p class="meta">2018 · Short · Role(s): Director · Writer · Producer (self-produced)</p>
-          <p class="desc">Social drama about flight and the cost of leaving. (Replace with your final logline.)</p>
-
-          <div class="btns">
-            <a class="btn" href="https://vimeo.com/1152035790?share=copy" target="_blank" rel="noopener noreferrer">Watch on Vimeo</a>
-          </div>
+          <a class="posterLink" href="https://vimeo.com/1152035790?share=copy" target="_blank" rel="noopener noreferrer" aria-label="The Flight — watch on Vimeo">
+            <!-- Upload: the-flight-poster.jpg -->
+            <img class="posterImg" src="the-flight-poster.jpg" alt="The Flight — poster" />
+            <div class="posterOverlay">
+              <p class="posterTitle">The Flight</p>
+              <p class="posterMeta">2018 · Short · Director · Writer · Producer (self-produced)</p>
+            </div>
+          </a>
         </article>
 
         <!-- 3) Saleh und Maja -->
         <article class="card">
-          <img class="filmImage" src="saleh-und-maja.jpg" alt="Saleh und Maja — still / poster" />
-
-          <h3>Saleh und Maja</h3>
-          <p class="meta">2018 · German · Romance / Comedy · Role(s): Director · Writer</p>
-          <p class="desc">A warm, human story about connection across worlds. (Replace with your final logline.)</p>
-
-          <div class="btns">
-            <!-- NOTE: Your link looks like a private/manage URL.
-                 If it doesn’t work for visitors, replace it with the public Vimeo “Share” link. -->
-            <a class="btn" href="https://vimeo.com/manage/videos/1153210080" target="_blank" rel="noopener noreferrer">Vimeo link</a>
-          </div>
+          <!-- IMPORTANT: this link currently looks like a private “manage” link.
+               Replace with the PUBLIC Vimeo share link for visitors. -->
+          <a class="posterLink" href="https://vimeo.com/manage/videos/1153210080" target="_blank" rel="noopener noreferrer" aria-label="Saleh und Maja — open Vimeo link">
+            <!-- Upload: saleh-und-maja-poster.jpg -->
+            <img class="posterImg" src="saleh-und-maja-poster.jpg" alt="Saleh und Maja — poster" />
+            <div class="posterOverlay">
+              <p class="posterTitle">Saleh und Maja</p>
+              <p class="posterMeta">2018 · German · Romance/Comedy · Director · Writer</p>
+            </div>
+          </a>
         </article>
-        
+
         <!-- 4) Occursus Blue -->
-<article class="card">
-  <img class="filmImage" src="occursus-blue.jpg" alt="Occursus Blue — still / poster" />
-
-  <h3>Occursus Blue</h3>
-  <p class="meta">2017 · Short · Vancouver · Role(s): Director · Writer · Producer (self-produced)</p>
-  <p class="desc">A short, atmospheric piece shaped by blue light and quiet tension. (Replace with your logline.)</p>
-
-  <div class="btns">
-    <a class="btn" href="https://youtu.be/68eTa9qdWIM?si=jK_tTW1LA6qCnjBP" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
-  </div>
-</article>
+        <article class="card">
+          <a class="posterLink" href="https://youtu.be/68eTa9qdWIM?si=jK_tTW1LA6qCnjBP" target="_blank" rel="noopener noreferrer" aria-label="Occursus Blue — watch on YouTube">
+            <!-- Upload: occursus-blue-poster.jpg -->
+            <img class="posterImg" src="occursus-blue-poster.jpg" alt="Occursus Blue — poster" />
+            <div class="posterOverlay">
+              <p class="posterTitle">Occursus Blue</p>
+              <p class="posterMeta">2017 · Vancouver · Director · Writer · Producer (self-produced)</p>
+            </div>
+          </a>
+        </article>
       </div>
     </div>
   </section>
@@ -399,7 +437,7 @@
           <p class="filmTitleLine"><strong>2022 — “Karl” — Calimedia & Chemnitzer Filmwerkstatt e.V.</strong></p>
           <p class="roleLine"><strong>Role(s):</strong> Assistant Director</p>
           <p class="filmMetaLine">
-            Links:
+            Link:
             <a href="https://www.imdb.com/title/tt13866470/fullcredits/" target="_blank" rel="noopener noreferrer">IMDb</a>
           </p>
         </li>
@@ -518,4 +556,3 @@
   </script>
 </body>
 </html>
-
