@@ -9,16 +9,15 @@
 
   <style>
     :root{
-      /* Cream / winter / wood + mystical red & gold — bright & readable */
       --cream: #fbf6ee;
       --white: #ffffff;
       --winter: #eef3f6;
       --linen: #f2ebe1;
       --wood: #b08968;
-      --red: #8b1f2f;     /* mystical burgundy */
+      --red: #8b1f2f;
       --gold: #b58b2a;
 
-      --text: #2a2420;    /* warm espresso */
+      --text: #2a2420;
       --muted: #5f564e;
       --line: rgba(42,36,32,0.14);
       --shadow: 0 14px 34px rgba(42,36,32,0.10);
@@ -103,73 +102,6 @@
       font-size: 0.95rem;
     }
     .nav a:hover{ color: var(--red); }
-/* POSTER GRID */
-.grid{
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 16px;
-  align-items: start;
-}
-
-/* Poster cards (each card IS a poster) */
-.card{
-  grid-column: span 6;
-  border-radius: 18px;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  box-shadow: var(--shadow);
-  background: rgba(255,255,255,0.35);
-}
-
-@media (max-width: 860px){
-  .card{ grid-column: span 12; }
-}
-
-.posterLink{
-  display: block;
-  position: relative;
-  color: inherit;
-}
-
-.posterImg{
-  width: 100%;
-  aspect-ratio: 2 / 3;      /* poster ratio */
-  object-fit: cover;
-  display: block;
-  transform: scale(1.001);
-  transition: opacity .7s ease, transform .7s ease, filter .7s ease;
-}
-
-/* very subtle hover */
-.posterLink:hover .posterImg{
-  opacity: .93;
-  transform: scale(1.01);
-  filter: contrast(1.03) brightness(1.02);
-}
-
-/* Minimal overlay at bottom */
-.posterOverlay{
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 14px 14px 12px;
-  background: linear-gradient(180deg, transparent, rgba(0,0,0,0.62));
-  color: rgba(255,255,255,0.96);
-}
-
-.posterTitle{
-  margin: 0;
-  font-weight: 650;
-  letter-spacing: 0.01em;
-  font-size: 1.05rem;
-}
-
-.posterMeta{
-  margin: 4px 0 0;
-  font-size: 0.92rem;
-  opacity: 0.88;
-}
 
     /* PROFILE IMAGE */
     .avatarWrap{ flex: 0 0 auto; }
@@ -183,7 +115,7 @@
       background: rgba(42,36,32,0.04);
     }
 
-    /* SECTION BANDS (subtle “film-like” but minimal) */
+    /* SECTION BANDS */
     section{ padding: 44px 0; }
 
     .bandA{
@@ -222,77 +154,75 @@
       max-width: 74ch;
     }
 
-/* PROJECT GRID (the previous professional look) */
-.grid{
-  display:grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 16px;
-}
-
-.card{
-  grid-column: span 6;
-  background: var(--white);
-  border: 1px solid var(--line);
-  border-radius: 18px;
-  padding: 18px 18px 16px;
-  box-shadow: var(--shadow);
-  min-height: 180px;
-}
-
-@media (max-width: 860px){
-  .card{ grid-column: span 12; }
-}
-
-/* Wide film still (just smaller than before) */
-.filmImage{
-  width: 100%;
-  max-height: 180px;      /* smaller */
-  object-fit: cover;
-  border-radius: 14px;
-  margin-bottom: 14px;
-  border: 1px solid var(--line);
-  box-shadow: 0 10px 24px rgba(42,36,32,0.12);
-  background: rgba(0,0,0,0.04);
-  transition: opacity 0.6s ease, transform 0.6s ease, filter 0.6s ease;
-}
-
-.card:hover .filmImage{
-  opacity: 0.94;
-  transform: scale(1.01);
-  filter: brightness(1.02);
-}
-    /* Optional tiny label for WIP */
-    .badge{
-      display:inline-block;
-      margin-left: 8px;
-      font-size: 0.80rem;
-      letter-spacing: 0.03em;
-      padding: 3px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.22);
-      background: rgba(181,139,42,0.16);
-      color: rgba(255,255,255,0.95);
-      vertical-align: middle;
+    /* ===========================
+       PROJECTS: POSTER GRID ONLY
+       =========================== */
+    .grid{
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 16px;
+      align-items: start;
     }
 
-    /* Buttons (used elsewhere, e.g. contact) */
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      gap: 8px;
-      padding: 9px 12px;
-      border-radius: 999px;
+    /* 2 posters per row on desktop */
+    .card{
+      grid-column: span 6;
+      border-radius: 18px;
+      overflow: hidden;
       border: 1px solid var(--line);
-      color: var(--text);
-      background: linear-gradient(180deg, rgba(139,31,47,0.08), rgba(181,139,42,0.10));
-      font-size: 0.92rem;
-    }
-    .btn:hover{
-      background: linear-gradient(180deg, rgba(139,31,47,0.12), rgba(181,139,42,0.14));
-      color: var(--text);
+      box-shadow: var(--shadow);
+      background: rgba(255,255,255,0.35);
     }
 
-    /* FILMOGRAPHY LIST (compact, year first, bold first line) */
+    @media (max-width: 860px){
+      .card{ grid-column: span 12; }
+    }
+
+    .posterLink{
+      display:block;
+      position: relative;
+      color: inherit;
+    }
+
+    .posterImg{
+      width: 100%;
+      aspect-ratio: 2 / 3;
+      object-fit: cover;
+      display:block;
+      transform: scale(1.001);
+      transition: opacity .7s ease, transform .7s ease, filter .7s ease;
+    }
+
+    .posterLink:hover .posterImg{
+      opacity: .93;
+      transform: scale(1.01);
+      filter: contrast(1.03) brightness(1.02);
+    }
+
+    .posterOverlay{
+      position:absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 14px 14px 12px;
+      background: linear-gradient(180deg, transparent, rgba(0,0,0,0.62));
+      color: rgba(255,255,255,0.96);
+    }
+
+    .posterTitle{
+      margin: 0;
+      font-weight: 650;
+      letter-spacing: 0.01em;
+      font-size: 1.05rem;
+    }
+
+    .posterMeta{
+      margin: 4px 0 0;
+      font-size: 0.92rem;
+      opacity: 0.88;
+    }
+
+    /* FILMOGRAPHY LIST */
     .filmList{
       margin: 0;
       padding-left: 1.2rem;
@@ -328,7 +258,7 @@
     }
     .roleLine strong{ color: var(--text); font-weight: 600; }
 
-    /* Panels for services/about/contact */
+    /* Panels */
     .panel{
       background: rgba(255,255,255,0.78);
       border: 1px solid var(--line);
@@ -394,62 +324,62 @@
       <p class="sub">Selected directing projects. Click a poster to open the film.</p>
 
       <div class="grid">
-       <!-- 1) Widerstand (WIP) -->
-<article class="card">
-  <a class="posterLink" href="#" target="_blank" rel="noopener noreferrer">
-    <img class="posterImg" src="widerstand.jpg" alt="Widerstand — poster" />
-    <div class="posterOverlay">
-      <p class="posterTitle">Widerstand</p>
-      <p class="posterMeta">2019 · Work in progress · Director</p>
-    </div>
-  </a>
-</article>
+        <!-- Widerstand (WIP) -->
+        <article class="card">
+          <a class="posterLink" href="#" target="_blank" rel="noopener noreferrer">
+            <img class="posterImg" src="widerstand.jpg" alt="Widerstand — poster" />
+            <div class="posterOverlay">
+              <p class="posterTitle">Widerstand</p>
+              <p class="posterMeta">2019 · Work in progress · Director</p>
+            </div>
+          </a>
+        </article>
 
-<!-- 2) The Flight (Vimeo) -->
-<article class="card">
-  <a class="posterLink" href="https://vimeo.com/1152035790?share=copy" target="_blank" rel="noopener noreferrer">
-    <img class="posterImg" src="the-flight.jpg" alt="The Flight — poster" />
-    <div class="posterOverlay">
-      <p class="posterTitle">The Flight</p>
-      <p class="posterMeta">2018 · Short · Director · Writer · Producer</p>
-    </div>
-  </a>
-</article>
+        <!-- The Flight (Vimeo) -->
+        <article class="card">
+          <a class="posterLink" href="https://vimeo.com/1152035790?share=copy" target="_blank" rel="noopener noreferrer">
+            <img class="posterImg" src="the-flight.jpg" alt="The Flight — poster" />
+            <div class="posterOverlay">
+              <p class="posterTitle">The Flight</p>
+              <p class="posterMeta">2018 · Short · Director · Writer · Producer</p>
+            </div>
+          </a>
+        </article>
 
-<!-- 3) Saleh und Maja (Vimeo) -->
-<article class="card">
-  <a class="posterLink" href="https://vimeo.com/manage/videos/1153210080" target="_blank" rel="noopener noreferrer">
-    <img class="posterImg" src="saleh-und-maja.jpg" alt="Saleh und Maja — poster" />
-    <div class="posterOverlay">
-      <p class="posterTitle">Saleh und Maja</p>
-      <p class="posterMeta">2018 · DE · Romance/Comedy · Director · Writer</p>
-    </div>
-  </a>
-</article>
+        <!-- Saleh und Maja (Vimeo) -->
+        <article class="card">
+          <a class="posterLink" href="https://vimeo.com/manage/videos/1153210080" target="_blank" rel="noopener noreferrer">
+            <img class="posterImg" src="saleh-und-maja.jpg" alt="Saleh und Maja — poster" />
+            <div class="posterOverlay">
+              <p class="posterTitle">Saleh und Maja</p>
+              <p class="posterMeta">2018 · DE · Romance/Comedy · Director · Writer</p>
+            </div>
+          </a>
+        </article>
 
-<!-- 4) Occursus Blue (YouTube) -->
-<article class="card">
-  <a class="posterLink" href="https://youtu.be/68eTa9qdWIM?si=jK_tTW1LA6qCnjBP" target="_blank" rel="noopener noreferrer">
-    <img class="posterImg" src="occursus-blue.jpg" alt="Occursus Blue — poster" />
-    <div class="posterOverlay">
-      <p class="posterTitle">Occursus Blue</p>
-      <p class="posterMeta">2017 · Vancouver · Director · Writer · Producer</p>
-    </div>
-  </a>
-</article>
+        <!-- Occursus Blue (YouTube) -->
+        <article class="card">
+          <a class="posterLink" href="https://youtu.be/68eTa9qdWIM?si=jK_tTW1LA6qCnjBP" target="_blank" rel="noopener noreferrer">
+            <img class="posterImg" src="occursus-blue.jpg" alt="Occursus Blue — poster" />
+            <div class="posterOverlay">
+              <p class="posterTitle">Occursus Blue</p>
+              <p class="posterMeta">2017 · Vancouver · Director · Writer · Producer</p>
+            </div>
+          </a>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- FILMOGRAPHY (compact list, newest first, year first, roles in one line) -->
+  <!-- FILMOGRAPHY -->
   <section id="filmography" class="bandB">
     <div class="wrap">
       <h2>Filmography</h2>
-      <p class="sub">Selected credits - newest first.</p>
+      <p class="sub">Selected credits — newest first.</p>
 
       <ol class="filmList" start="1">
         <li>
-          <p class="filmTitleLine"><strong>2025 - “Mein Name Akim” - ifs Köln</strong></p>
+          <p class="filmTitleLine"><strong>2025 — “Mein Name Akim” — ifs Köln</strong></p>
           <p class="roleLine"><strong>Role(s):</strong> Script Supervisor · Assistant Director · Casting</p>
           <p class="filmMetaLine">
             Graduation film (Dir: Aleksandr Kim). Casting support & coordination (online/e-castings), international cast care.
@@ -458,10 +388,10 @@
         </li>
 
         <li>
-          <p class="filmTitleLine"><strong>2022 - “Kaffee und Kippen” - The Grandmaster Productions</strong></p>
+          <p class="filmTitleLine"><strong>2022 — “Kaffee und Kippen” — The Grandmaster Productions</strong></p>
           <p class="roleLine"><strong>Role(s):</strong> Script Supervisor</p>
           <p class="filmMetaLine">
-            Links:
+            <strong>Links:</strong>
             <a href="https://www.imdb.com/title/tt16464102/?ref_=fn_t_2" target="_blank" rel="noopener noreferrer">IMDb</a>
             ·
             <a href="https://www.youtube.com/watch?v=97R5Mj7a3QA" target="_blank" rel="noopener noreferrer">YouTube</a>
@@ -469,16 +399,16 @@
         </li>
 
         <li>
-          <p class="filmTitleLine"><strong>2022 - “Karl” - Calimedia & Chemnitzer Filmwerkstatt e.V.</strong></p>
+          <p class="filmTitleLine"><strong>2022 — “Karl” — Calimedia & Chemnitzer Filmwerkstatt e.V.</strong></p>
           <p class="roleLine"><strong>Role(s):</strong> Assistant Director</p>
           <p class="filmMetaLine">
-            Link:
+            <strong>Link:</strong>
             <a href="https://www.imdb.com/title/tt13866470/fullcredits/" target="_blank" rel="noopener noreferrer">IMDb</a>
           </p>
         </li>
 
         <li>
-          <p class="filmTitleLine"><strong>2018 - “Saleh und Maja” - TU Chemnitz / Chemnitzer Filmwerkstatt e.V. / CWE</strong></p>
+          <p class="filmTitleLine"><strong>2018 — “Saleh und Maja” — TU Chemnitz / Chemnitzer Filmwerkstatt e.V. / CWE</strong></p>
           <p class="roleLine"><strong>Role(s):</strong> Director · Writer · Project Lead</p>
           <p class="filmMetaLine">
             Intercultural graduation project (80+ participants). Awarded 1st Chemnitz Citizen Prize; nominated for the German Engagement Award.
@@ -486,22 +416,22 @@
         </li>
 
         <li>
-          <p class="filmTitleLine"><strong>2018 - “The Flight” - Self-produced</strong></p>
+          <p class="filmTitleLine"><strong>2018 — “The Flight” — Self-produced</strong></p>
           <p class="roleLine"><strong>Role(s):</strong> Director · Writer · Producer</p>
           <p class="filmMetaLine">
-            Link:
+            <strong>Link:</strong>
             <a href="https://vimeo.com/1152035790?share=copy" target="_blank" rel="noopener noreferrer">Vimeo</a>
           </p>
         </li>
 
         <li>
-          <p class="filmTitleLine"><strong>2017 - “Drunk in Love” - Short Film (15 min)</strong></p>
+          <p class="filmTitleLine"><strong>2017 — “Drunk in Love” — Short Film (15 min)</strong></p>
           <p class="roleLine"><strong>Role(s):</strong> Script Supervisor</p>
           <p class="filmMetaLine">
             Director/Writer: Johannes Prondzinsky · Cast: Gabriel Ziemer · Karina Geipel · Arina Ernst
           </p>
           <p class="filmMetaLine">
-            Links:
+            <strong>Links:</strong>
             <a href="https://www.imdb.com/de/title/tt7305596/" target="_blank" rel="noopener noreferrer">IMDb</a>
             ·
             <a href="https://youtu.be/2OXPmTntjCU?si=qNUb4jI5wMdCWz3K" target="_blank" rel="noopener noreferrer">YouTube</a>
@@ -509,7 +439,7 @@
         </li>
 
         <li>
-          <p class="filmTitleLine"><strong>2017 - “Irgendwer” - In One Media</strong></p>
+          <p class="filmTitleLine"><strong>2017 — “Irgendwer” — In One Media</strong></p>
           <p class="roleLine"><strong>Role(s):</strong> Production Assistant</p>
           <p class="filmMetaLine">
             Insight into professional set workflows; support with set organization and production tasks.
@@ -517,10 +447,10 @@
         </li>
 
         <li>
-          <p class="filmTitleLine"><strong>2017 - “Occursus Blue” - Self-produced (Vancouver)</strong></p>
+          <p class="filmTitleLine"><strong>2017 — “Occursus Blue” — Self-produced (Vancouver)</strong></p>
           <p class="roleLine"><strong>Role(s):</strong> Director · Writer · Producer</p>
           <p class="filmMetaLine">
-            Link:
+            <strong>Link:</strong>
             <a href="https://youtu.be/68eTa9qdWIM?si=jK_tTW1LA6qCnjBP" target="_blank" rel="noopener noreferrer">YouTube</a>
           </p>
         </li>
@@ -531,7 +461,7 @@
   <section id="services" class="bandC">
     <div class="wrap">
       <h2>Services</h2>
-      <p class="sub">Clear, simple offering - so people immediately know what you do.</p>
+      <p class="sub">Clear, simple offering — so people immediately know what you do.</p>
 
       <div class="twoCol">
         <div class="panel">
@@ -561,7 +491,7 @@
       <h2>About</h2>
       <div class="panel">
         <p style="margin:0; max-width: 78ch;">
-          Viktoria Domnikova works where film meets intimacy - observing what people don’t say, and how silence moves.
+          Viktoria Domnikova works where film meets intimacy — observing what people don’t say, and how silence moves.
           Her approach is minimal, tactile, and emotionally precise.
         </p>
       </div>
@@ -591,13 +521,3 @@
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
