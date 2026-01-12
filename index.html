@@ -155,15 +155,13 @@
       max-width: 74ch;
     }
 
-/* PROJECT GRID (clean, professional, like before) */
+/* PROJECT GRID (the previous professional look) */
 .grid{
-  display: grid;
+  display:grid;
   grid-template-columns: repeat(12, 1fr);
   gap: 16px;
-  align-items: start;
 }
 
-/* Cards (same vibe as before) */
 .card{
   grid-column: span 6;
   background: var(--white);
@@ -171,28 +169,28 @@
   border-radius: 18px;
   padding: 18px 18px 16px;
   box-shadow: var(--shadow);
+  min-height: 180px;
 }
 
 @media (max-width: 860px){
   .card{ grid-column: span 12; }
 }
 
-/* Poster inside card: centered, slightly smaller, NOT narrow */
-.posterImg{
-  width: min(92%, 320px);   /* slightly smaller than full width */
-  aspect-ratio: 2 / 3;      /* poster shape */
+/* Wide film still (just smaller than before) */
+.filmImage{
+  width: 100%;
+  max-height: 180px;      /* smaller */
   object-fit: cover;
-  display: block;
-  margin: 0 auto 14px;      /* centered */
   border-radius: 14px;
+  margin-bottom: 14px;
   border: 1px solid var(--line);
   box-shadow: 0 10px 24px rgba(42,36,32,0.12);
   background: rgba(0,0,0,0.04);
   transition: opacity 0.6s ease, transform 0.6s ease, filter 0.6s ease;
 }
 
-.card:hover .posterImg{
-  opacity: 0.95;
+.card:hover .filmImage{
+  opacity: 0.94;
   transform: scale(1.01);
   filter: brightness(1.02);
 }
@@ -532,6 +530,7 @@
   </script>
 </body>
 </html>
+
 
 
 
