@@ -103,6 +103,73 @@
       font-size: 0.95rem;
     }
     .nav a:hover{ color: var(--red); }
+/* POSTER GRID */
+.grid{
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+
+/* Poster cards (each card IS a poster) */
+.card{
+  grid-column: span 6;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  background: rgba(255,255,255,0.35);
+}
+
+@media (max-width: 860px){
+  .card{ grid-column: span 12; }
+}
+
+.posterLink{
+  display: block;
+  position: relative;
+  color: inherit;
+}
+
+.posterImg{
+  width: 100%;
+  aspect-ratio: 2 / 3;      /* poster ratio */
+  object-fit: cover;
+  display: block;
+  transform: scale(1.001);
+  transition: opacity .7s ease, transform .7s ease, filter .7s ease;
+}
+
+/* very subtle hover */
+.posterLink:hover .posterImg{
+  opacity: .93;
+  transform: scale(1.01);
+  filter: contrast(1.03) brightness(1.02);
+}
+
+/* Minimal overlay at bottom */
+.posterOverlay{
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 14px 14px 12px;
+  background: linear-gradient(180deg, transparent, rgba(0,0,0,0.62));
+  color: rgba(255,255,255,0.96);
+}
+
+.posterTitle{
+  margin: 0;
+  font-weight: 650;
+  letter-spacing: 0.01em;
+  font-size: 1.05rem;
+}
+
+.posterMeta{
+  margin: 4px 0 0;
+  font-size: 0.92rem;
+  opacity: 0.88;
+}
 
     /* PROFILE IMAGE */
     .avatarWrap{ flex: 0 0 auto; }
@@ -530,6 +597,7 @@
   </script>
 </body>
 </html>
+
 
 
 
