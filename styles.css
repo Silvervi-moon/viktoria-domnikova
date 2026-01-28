@@ -9,7 +9,6 @@
 }
 
 * { box-sizing: border-box; }
-body { border: 8px solid red !important; }
 body{
   margin:0;
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
