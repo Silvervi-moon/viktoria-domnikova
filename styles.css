@@ -129,3 +129,25 @@ a:hover{ text-decoration: underline; }
   a{ color:#000; text-decoration: underline; }
   .grid{ gap: 10px; }
 }
+/* Weekly focus simplification */
+.week h2 {
+  font-size: 18px;
+}
+
+.optional {
+  opacity: 0.85;
+  border-style: dashed;
+}
+
+.muted {
+  opacity: 0.45;
+  filter: grayscale(40%);
+}
+
+.muted h2 {
+  font-size: 15px;
+}
+
+.muted ul {
+  font-style: italic;
+}
