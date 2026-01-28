@@ -1,11 +1,13 @@
-
 :root{
-  --bg: #0b0f14;
-  --card: #121a23;
-  --text: #e8eef6;
-  --muted: #b9c6d6;
-  --line: rgba(255,255,255,.08);
-  --accent: #7bdcff;
+  --accent: #2FB5B5;           /* your chosen teal */
+  --accent2: #7BE7E7;          /* airy highlight */
+  --accent3: #B8FFF2;          /* sea-foam glow */
+  --bg: #041a1c;               /* deep ocean but cleaner */
+  --surface: rgba(255,255,255,.07);
+  --surface2: rgba(255,255,255,.10);
+  --text: #EFFFFE;             /* brighter readable */
+  --muted: rgba(239,255,254,.74);
+  --line: rgba(47,181,181,.22);
 }
 
 * { box-sizing: border-box; }
