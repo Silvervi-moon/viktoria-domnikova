@@ -1,0 +1,89 @@
+function setup() {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+
+  const tasks = ss.getSheetByName('Tasks') || ss.insertSheet('Tasks');
+  const dash  = ss.getSheetByName('Dashboard') || ss.insertSheet('Dashboard');
+
+  // ----- Tasks -----
+  tasks.clear();
+  tasks.setFrozenRows(1);
+
+  const headers = [
+    'Projekt','Bereich/Tag','Zwischenziel/Meilenstein','Aufgabe','Zwischenschritt',
+    'Nächste Aktion','Status','Priorität','Start','Deadline','Erledigt ✔','Erledigt am','Notizen'
+  ];
+  tasks.getRange(1,1,1,headers.length).setValues([headers]).setFontWeight('bold');
+  tasks.getRange(1,1,1,headers.length).setWrap(true);
+  tasks.getRange(1,1,1,headers.length).createFilter();
+
+  const maxRows = 500;
+
+  // Checkboxen (Spalte 11)
+  tasks.getRange(2, 11, maxRows, 1).insertCheckboxes();
+
+  // Dropdowns
+  const statusRule = SpreadsheetApp.newDataValidation()
+    .requireValueInList(['offen','in Arbeit','wartet','blockiert','fertig','geparkt'], true)
+    .setAllowInvalid(false)
+    .build();
+  tasks.getRange(2, 7, maxRows, 1).setDataValidation(statusRule);
+
+  const prioRule = SpreadsheetApp.newDataValidation()
+    .requireValueInList(['P1','P2','P3','P4'], true)
+    .setAllowInvalid(false)
+    .build();
+  tasks.getRange(2, 8, maxRows, 1).setDataValidation(prioRule);
+
+  // Datumsformat
+  tasks.getRange(2, 9, maxRows, 2).setNumberFormat('yyyy-mm-dd'); // Start/Deadline
+  tasks.getRange(2, 12, maxRows, 1).setNumberFormat('yyyy-mm-dd'); // Erledigt am
+
+  // Spaltenbreiten grob
+  [180,120,180,260,220,220,120,100,110,110,100,120,260].forEach((w,i)=>tasks.setColumnWidth(i+1,w));
+
+  // ----- Dashboard -----
+  dash.clear();
+  dash.setFrozenRows(1);
+  const dh = ['Projekt','Offen','In Arbeit','Blockiert','Fertig','Fortschritt %','Nächste Deadline'];
+  dash.getRange(1,1,1,dh.length).setValues([dh]).setFontWeight('bold');
+  dash.getRange(1,1,1,dh.length).createFilter();
+
+  dash.getRange('A2').setFormula('=SORT(UNIQUE(FILTER(Tasks!A2:A, Tasks!A2:A<>"")))');
+  dash.getRange('B2').setFormula('=IF($A2="","",COUNTIFS(Tasks!A:A,$A2,Tasks!G:G,"offen",Tasks!K:K,FALSE))');
+  dash.getRange('C2').setFormula('=IF($A2="","",COUNTIFS(Tasks!A:A,$A2,Tasks!G:G,"in Arbeit",Tasks!K:K,FALSE))');
+  dash.getRange('D2').setFormula('=IF($A2="","",COUNTIFS(Tasks!A:A,$A2,Tasks!G:G,"blockiert",Tasks!K:K,FALSE))');
+  dash.getRange('E2').setFormula('=IF($A2="","",COUNTIFS(Tasks!A:A,$A2,Tasks!K:K,TRUE)+COUNTIFS(Tasks!A:A,$A2,Tasks!G:G,"fertig"))');
+  dash.getRange('F2').setFormula('=IF($A2="","",IFERROR(E2/(B2+C2+D2+E2),0))');
+  dash.getRange('F2:F').setNumberFormat('0%');
+  dash.getRange('G2').setFormula('=IF($A2="","",IFERROR(MIN(FILTER(Tasks!J:J, Tasks!A:A=$A2, Tasks!J:J<>"", Tasks!K:K<>TRUE, Tasks!G:G<>"fertig")), ""))');
+  dash.getRange('G2:G').setNumberFormat('yyyy-mm-dd');
+
+  // nach unten kopieren
+  dash.getRange('B2:G2').copyTo(dash.getRange('B2:G200'), {contentsOnly:false});
+
+  SpreadsheetApp.getUi().alert('Setup fertig: "Tasks" & "Dashboard" sind erstellt ✅');
+}
+
+// Checkbox -> Datum setzen + Status auf "fertig"
+function onEdit(e) {
+  const sh = e.range.getSheet();
+  if (sh.getName() !== 'Tasks') return;
+
+  const row = e.range.getRow();
+  const col = e.range.getColumn();
+  if (row < 2) return;
+
+  // Erledigt ✔ ist Spalte 11
+  if (col === 11) {
+    const checked = e.range.getValue() === true;
+    const doneDate = sh.getRange(row, 12); // Erledigt am
+    const status   = sh.getRange(row, 7);  // Status
+
+    if (checked) {
+      if (!doneDate.getValue()) doneDate.setValue(new Date());
+      status.setValue('fertig');
+    } else {
+      doneDate.clearContent();
+    }
+  }
+}
