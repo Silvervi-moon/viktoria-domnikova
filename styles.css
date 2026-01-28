@@ -246,3 +246,119 @@ a:hover{ text-decoration: underline; }
 @media print {
   .week-nav { display: none !important; }
 }
+/* ===== Daily card: structured + feels personal ===== */
+
+.daily-card{
+  border-color: rgba(47,181,181,.40);
+  background:
+    radial-gradient(900px 220px at 20% 0%, rgba(47,181,181,.18), transparent 55%),
+    linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.06));
+  position: relative;
+  overflow: hidden;
+}
+
+.daily-card::before{
+  content:"";
+  position:absolute;
+  inset:-40% -20% auto -20%;
+  height: 220px;
+  background: linear-gradient(90deg, transparent, rgba(184,255,242,.18), transparent);
+  transform: rotate(-8deg);
+  animation: shimmer 10s linear infinite;
+  pointer-events:none;
+}
+
+@keyframes shimmer{
+  0% { transform: translateX(-35%) rotate(-8deg); opacity:.35; }
+  50% { opacity:.55; }
+  100% { transform: translateX(35%) rotate(-8deg); opacity:.35; }
+}
+
+.daily-head h2{
+  margin: 0 0 6px;
+  font-size: 18px;
+  letter-spacing: .2px;
+}
+.daily-sub{
+  margin: 0;
+  color: var(--muted);
+}
+
+.day-rows{
+  margin-top: 12px;
+  display: grid;
+  gap: 10px;
+}
+
+.day-part{
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(0,0,0,.12);
+}
+
+.day-label{
+  font-weight: 700;
+  color: var(--accent3);
+  letter-spacing: .2px;
+  padding-top: 2px;
+}
+
+.day-body ul{
+  margin: 6px 0 0 18px;
+}
+
+.microtitle{
+  margin: 0;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.rule{
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-style: italic;
+}
+
+.daily-note{
+  margin: 12px 0 0;
+  color: var(--muted);
+  border-top: 1px solid rgba(255,255,255,.10);
+  padding-top: 12px;
+}
+
+/* Make Daily link stand out */
+.week-nav .daily-link{
+  border-color: rgba(47,181,181,.45);
+  background: rgba(47,181,181,.14);
+  color: var(--text);
+}
+
+/* Desktop: keep Daily visible top-right-ish by making it sticky */
+@media (min-width: 980px){
+  .daily-card{
+    position: sticky;
+    top: 14px;
+    z-index: 2;
+  }
+}
+
+/* Mobile: nicer spacing */
+@media (max-width: 620px){
+  .day-part{
+    grid-template-columns: 1fr;
+  }
+  .day-label{
+    opacity: .9;
+  }
+}
+
+/* Paused section stays clearly "other" */
+.paused{
+  border-style: dashed;
+  opacity: 0.60;
+  filter: grayscale(25%);
+}
