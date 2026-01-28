@@ -151,3 +151,82 @@ a:hover{ text-decoration: underline; }
 .muted ul {
   font-style: italic;
 }
+/* ===== 4-WEEK STACK + NAV (append at end) ===== */
+
+/* Stack weeks vertically (scroll) */
+.stack{
+  padding: 18px 0 28px;
+  display: grid;
+  gap: 18px;
+}
+
+/* Week navigation menu */
+.week-nav{
+  margin-top: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.week-nav a{
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.04);
+  padding: 8px 12px;
+  border-radius: 999px;
+}
+.week-nav a:hover{
+  background: rgba(255,255,255,.08);
+}
+.week-nav .muted-link{
+  opacity: .7;
+}
+
+/* Week layout inside each card */
+.week-grid{
+  margin-top: 10px;
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+}
+@media (max-width: 860px){
+  .week-grid{ grid-template-columns: 1fr; }
+}
+
+.week-intent{
+  margin: 6px 0 0;
+  color: var(--muted);
+}
+
+/* Make each week visually separate */
+.week-1{
+  border-color: rgba(123,220,255,.22);
+  background: linear-gradient(135deg, rgba(123,220,255,.10), rgba(255,255,255,.02));
+}
+.week-2{
+  border-color: rgba(255,143,182,.22);
+  background: linear-gradient(135deg, rgba(255,143,182,.10), rgba(255,255,255,.02));
+}
+.week-3{
+  border-color: rgba(255,206,107,.22);
+  background: linear-gradient(135deg, rgba(255,206,107,.10), rgba(255,255,255,.02));
+}
+.week-4{
+  border-color: rgba(166,255,195,.22);
+  background: linear-gradient(135deg, rgba(166,255,195,.10), rgba(255,255,255,.02));
+}
+
+/* Muted paused section: strong separation but readable */
+.paused{
+  margin-top: 6px;
+  border-style: dashed;
+}
+
+/* Override earlier muted opacity so it’s not too faint */
+.muted{
+  opacity: 0.55;
+  filter: grayscale(35%);
+}
+
+/* Print: keep nav hidden */
+@media print {
+  .week-nav { display: none !important; }
+}
