@@ -7,319 +7,149 @@
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-  <header class="top">
-    <div class="wrap">
-      <h1>Month Compass</h1>
-      <p class="subtitle">Widerstand — Creation Month (supported by Stabilization)</p>
 
-      <div class="meta">
-        <span><strong>North Star:</strong> Create clarity through one creative decision.</span>
-        <span><strong>Start Signal:</strong> Send producer update message → first gentle DaVinci session (30–60 min).</span>
-        <span><strong>Current week:</strong> <span id="week-label">…</span></span>
-      </div>
+<header class="top">
+  <div class="wrap">
+    <h1>Month Compass</h1>
+    <p class="subtitle">Widerstand — Creation Month (supported by Stabilization)</p>
 
-      <nav class="week-nav noprint" aria-label="Week navigation">
-        <a href="#daily" class="daily-link">Daily</a>
-        <a href="#week1">Week 1</a>
-        <a href="#week2">Week 2</a>
-        <a href="#week3">Week 3</a>
-        <a href="#week4">Week 4</a>
-        <a href="#paused" class="muted-link">Not this month</a>
-      </nav>
-
-      <div class="actions noprint">
-        <button onclick="window.print()">Print / Save as PDF</button>
-      </div>
-    </div>
-  </header>
-<section class="card">
-  <h2>🕊 Daily Rhythm (approx.)</h2>
-  <ul>
-    <li><strong>Morning:</strong> Yoga + meditation (grounding)</li>
-    <li><strong>Main block:</strong> ONE focus (Widerstand OR Life Admin)</li>
-    <li><strong>After:</strong> Movement / unwind</li>
-    <li><strong>Evening:</strong> Light input or connection</li>
-    <li><strong>Close:</strong> Evening meditation, rest</li>
-  </ul>
-  <p class="note">Rule: one effortful thing per day is enough.</p>
-</section>
-
-  <main class="wrap stack">
-<section id="daily" class="card daily-card">
-  <div class="daily-head">
-    <h2>🕊 My Daily Rhythm (contained, realistic)</h2>
-    <p class="daily-sub">One “effortful” thing per day is enough. Everything else supports it.</p>
-  </div>
-
-  <div class="day-rows">
-    <div class="day-part">
-      <div class="day-label">Morning</div>
-      <div class="day-body">
-        <ul>
-          <li>Yoga (Adriene): <strong>15–30 min</strong></li>
-          <li>Meditation: <strong>5 min</strong></li>
-          <li>Optional: smoothie / protein shake</li>
-        </ul>
-      </div>
+    <div class="meta">
+      <span><strong>North Star:</strong> Create clarity through one creative decision.</span>
+      <span><strong>Start Signal:</strong> Send producer update → first gentle DaVinci session.</span>
+      <span><strong>Calendar reference:</strong> <span id="week-label"></span></span>
     </div>
 
-    <div class="day-part">
-      <div class="day-label">Afternoon</div>
-      <div class="day-body">
-        <p class="microtitle">Pick ONE main block:</p>
-        <ul>
-          <li><strong>Widerstand block</strong> (30 min – 3 h): edit / sound test / review / technical</li>
-          <li><strong>Life Admin Block</strong> (45–90 min): therapy calls, documents, urgent forms</li>
-        </ul>
-        <p class="rule">Rule: Usually not both in one day.</p>
-      </div>
-    </div>
+    <nav class="week-nav noprint">
+      <a href="#daily">Daily</a>
+      <a href="#week1">Week 1</a>
+      <a href="#week2">Week 2</a>
+      <a href="#week3">Week 3</a>
+      <a href="#week4">Week 4</a>
+      <a href="#paused" class="muted-link">Not this month</a>
+    </nav>
 
-    <div class="day-part">
-      <div class="day-label">After</div>
-      <div class="day-body">
-        <ul>
-          <li>Unwind + downshift (walk / shower+music / face yoga / rest)</li>
-          <li>If it’s a dance day: <strong>30–60 min</strong> (counts as regulation)</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="day-part">
-      <div class="day-label">Evening</div>
-      <div class="day-body">
-        <ul>
-          <li>Awareness input: <strong>live at 5pm OR recording</strong> (recordings fully count)</li>
-          <li>Light connection (short call / message) or calm time</li>
-          <li>Meditation: <strong>≥10 min</strong></li>
-        </ul>
-      </div>
+    <div class="actions noprint">
+      <button onclick="window.print()">Print / Save as PDF</button>
     </div>
   </div>
+</header>
 
-  <p class="daily-note">
-    If I feel bored: I change the <strong>place / format / session type</strong> — not the goal.
+<main class="wrap">
+  <div class="layout">
+
+    <!-- LEFT: WEEKS -->
+    <div class="weeks stack">
+
+      <section id="week1" class="card week week-1">
+        <h2>Week 1 — Orientation & Setup</h2>
+        <p class="week-intent">Intent: reduce friction, create momentum.</p>
+        <ul>
+          <li>DaVinci setup + workflow test</li>
+          <li>Start / recreate timeline</li>
+          <li>Studio appointment → decision</li>
+        </ul>
+      </section>
+
+      <section id="week2" class="card week week-2">
+        <h2>Week 2 — Second Cut Exists</h2>
+        <p class="week-intent">Intent: finish the full second cut (imperfect is fine).</p>
+        <ul>
+          <li>Push second cut to full length</li>
+          <li>Light sound test on one scene</li>
+        </ul>
+      </section>
+
+      <section id="week3" class="card week week-3">
+        <h2>Week 3 — Compare & Decide</h2>
+        <p class="week-intent">Intent: clarity over perfection.</p>
+        <ul>
+          <li>Compare versions (max 2)</li>
+          <li>Write short decision note</li>
+        </ul>
+      </section>
+
+      <section id="week4" class="card week week-4">
+        <h2>Week 4 — Communicate & Close</h2>
+        <p class="week-intent">Intent: close the loop calmly and professionally.</p>
+        <ul>
+          <li>Finalize chosen version</li>
+          <li>Communicate decision to producer</li>
+        </ul>
+      </section>
+
+      <section id="paused" class="card muted paused">
+        <h2>Not this month (intentionally paused)</h2>
+        <ul>
+          <li>Major relocation decisions</li>
+          <li>Studio perfection</li>
+          <li>Social over-commitment</li>
+          <li>Catching up on everything</li>
+          <li>Pressure to attend webinars live</li>
+        </ul>
+      </section>
+
+    </div>
+
+    <!-- RIGHT: DAILY -->
+    <aside class="side">
+      <section id="daily" class="card daily-card">
+        <h2>Daily Rhythm</h2>
+        <p class="daily-sub">One effortful thing per day is enough.</p>
+
+        <div class="day-part">
+          <div class="day-label">Morning</div>
+          <ul>
+            <li>Yoga 15–30 min</li>
+            <li>Meditation 5 min</li>
+            <li>Smoothie / protein shake</li>
+          </ul>
+        </div>
+
+        <div class="day-part">
+          <div class="day-label">Main block</div>
+          <ul>
+            <li>Widerstand editing (30 min – 3 h)</li>
+            <li><em>or</em> Life Admin Block (45–90 min)</li>
+          </ul>
+        </div>
+
+        <div class="day-part">
+          <div class="day-label">After</div>
+          <ul>
+            <li>Walk, dance, face yoga, or rest</li>
+          </ul>
+        </div>
+
+        <div class="day-part">
+          <div class="day-label">Evening</div>
+          <ul>
+            <li>Awareness input (live or recording)</li>
+            <li>Meditation ≥10 min</li>
+          </ul>
+        </div>
+      </section>
+    </aside>
+
+  </div>
+</main>
+
+<footer class="wrap footer">
+  <p class="small">
+    Principle: Focus is selective presence. One month at a time.
   </p>
-</section>
+</footer>
 
-    <!-- WEEK 1 -->
-    <section id="week1" class="week card week-1">
-      <h2>Week 1 — Orientation & Setup</h2>
-      <p class="week-intent"><strong>Intent:</strong> remove friction, create momentum.</p>
+<script>
+  function getISOWeek(d){
+    d = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
+    d.setUTCDate(d.getUTCDate() + 4 - (d.getUTCDay()||7));
+    const yearStart = new Date(Date.UTC(d.getUTCFullYear(),0,1));
+    return Math.ceil((((d - yearStart) / 86400000) + 1) / 7);
+  }
+  const now = new Date();
+  document.getElementById("week-label").textContent =
+    "ISO Week " + getISOWeek(now) + " (" + now.getFullYear() + ")";
+</script>
 
-      <div class="week-grid">
-        <div>
-          <h3>Focus (this week)</h3>
-          <ul>
-            <li>DaVinci setup + basic workflow test</li>
-            <li>Start / recreate timeline and do a first rough pass</li>
-            <li>Studio appointment (decision micro-project)</li>
-          </ul>
-        </div>
-
-        <div>
-          <h3>Anchors (repeat)</h3>
-          <ul>
-            <li>Daily yoga 15–30 min + meditation (5 min AM / 10 min PM)</li>
-            <li>Dance workouts: 2× (30–60 min)</li>
-            <li>1 awareness input (recording or live at 5pm)</li>
-            <li>1 Life Admin Block (therapy calls/docs) + unwind afterwards</li>
-            <li>Boyfriend: protected weekend block</li>
-            <li>1 Perspective Trip</li>
-          </ul>
-        </div>
-
-        <div>
-          <h3>Optional (only if energy is good)</h3>
-          <ul>
-            <li>Face yoga 1–2×</li>
-            <li>Creative collective session (Create or Masterclass)</li>
-          </ul>
-        </div>
-
-        <div>
-          <h3>Motivation placement</h3>
-          <ul>
-            <li>Watch Minimalism documentary mid-week evening</li>
-            <li>10 min journaling: “What can be simpler this month?”</li>
-          </ul>
-          <p class="small">
-            Link: <a href="https://www.theminimalists.com/films/" target="_blank" rel="noreferrer">theminimalists.com/films</a>
-          </p>
-        </div>
-      </div>
-
-      <p class="note">Rule: One block/day max. Minimum session = 30 minutes. Leave a thread: “Next time I’ll …”.</p>
-    </section>
-
-    <!-- WEEK 2 -->
-    <section id="week2" class="week card week-2">
-      <h2>Week 2 — Second Cut Exists</h2>
-      <p class="week-intent"><strong>Intent:</strong> build the full second cut (imperfect is fine).</p>
-
-      <div class="week-grid">
-        <div>
-          <h3>Focus (this week)</h3>
-          <ul>
-            <li>Push the second cut to full-length</li>
-            <li>Light sound experiments on 1 key scene (no perfection)</li>
-            <li>Studio decision made (yes/no/yes-with-conditions)</li>
-          </ul>
-        </div>
-
-        <div>
-          <h3>Anchors (repeat)</h3>
-          <ul>
-            <li>Daily yoga + meditation</li>
-            <li>Dance workouts: 2×</li>
-            <li>1 awareness input</li>
-            <li>2–3 Life Admin Blocks total (across the week)</li>
-            <li>Boyfriend block + Perspective Trip</li>
-          </ul>
-        </div>
-
-        <div>
-          <h3>Optional</h3>
-          <ul>
-            <li>Face yoga 2–3×</li>
-            <li>Extra review session (watch as viewer, notes only)</li>
-          </ul>
-        </div>
-
-        <div>
-          <h3>Boundary</h3>
-          <ul>
-            <li>No “catch-up” mindset</li>
-            <li>Stop before exhaustion</li>
-          </ul>
-        </div>
-      </div>
-
-      <p class="note">Win condition: “A full second cut exists.”</p>
-    </section>
-
-    <!-- WEEK 3 -->
-    <section id="week3" class="week card week-3">
-      <h2>Week 3 — Compare & Decide</h2>
-      <p class="week-intent"><strong>Intent:</strong> clarity. choose the version you stand behind.</p>
-
-      <div class="week-grid">
-        <div>
-          <h3>Focus (this week)</h3>
-          <ul>
-            <li>Compare versions (max 2)</li>
-            <li>Write a short decision note (½–1 page): why this version</li>
-            <li>Test sound direction on key scenes</li>
-          </ul>
-        </div>
-
-        <div>
-          <h3>Anchors (repeat)</h3>
-          <ul>
-            <li>Daily yoga + meditation</li>
-            <li>Dance workouts: 3–4×</li>
-            <li>1 awareness input</li>
-            <li>2–3 Life Admin Blocks total + unwind afterwards</li>
-            <li>Boyfriend block + Perspective Trip</li>
-          </ul>
-        </div>
-
-        <div>
-          <h3>Optional</h3>
-          <ul>
-            <li>Face yoga 3×</li>
-            <li>Creative collective Create session (ideal for journaling decisions)</li>
-          </ul>
-        </div>
-
-        <div>
-          <h3>Boundary</h3>
-          <ul>
-            <li>Do not chase perfection — chase conviction</li>
-          </ul>
-        </div>
-      </div>
-
-      <p class="note">Win condition: “I know which version I stand behind.”</p>
-    </section>
-
-    <!-- WEEK 4 -->
-    <section id="week4" class="week card week-4">
-      <h2>Week 4 — Finalize & Communicate</h2>
-      <p class="week-intent"><strong>Intent:</strong> close the loop professionally and calmly.</p>
-
-      <div class="week-grid">
-        <div>
-          <h3>Focus (this week)</h3>
-          <ul>
-            <li>Finalize chosen version (enough, not perfect)</li>
-            <li>Communicate decision to Producer (Filmwerkstatt)</li>
-            <li>Archive other versions cleanly (nothing is lost)</li>
-          </ul>
-        </div>
-
-        <div>
-          <h3>Anchors (repeat)</h3>
-          <ul>
-            <li>Daily yoga + meditation</li>
-            <li>Dance workouts: 3–4×</li>
-            <li>1 awareness input (recording counts)</li>
-            <li>2–3 Life Admin Blocks total + unwind afterwards</li>
-            <li>Boyfriend block + Perspective Trip</li>
-          </ul>
-        </div>
-
-        <div>
-          <h3>Optional</h3>
-          <ul>
-            <li>Face yoga 3–4×</li>
-            <li>One celebration ritual (walk, water, favorite café)</li>
-          </ul>
-        </div>
-
-        <div>
-          <h3>Boundary</h3>
-          <ul>
-            <li>Do not open new major projects this week</li>
-          </ul>
-        </div>
-      </div>
-
-      <p class="note">Win condition: “Decision made and communicated.”</p>
-    </section>
-
-    <!-- PAUSED -->
-    <section id="paused" class="card muted paused">
-      <h2>⏸️ Not This Month (intentionally paused)</h2>
-      <ul>
-        <li>Major relocation decisions</li>
-        <li>Studio perfection or full move</li>
-        <li>Social over-commitment</li>
-        <li>Catching up on everything</li>
-        <li>Pressure to attend webinars live (recordings fully count)</li>
-      </ul>
-      <p class="small">This list is here to reduce guilt — not to create pressure.</p>
-    </section>
-
-  </main>
-
-  <footer class="wrap footer">
-    <p class="small">
-      Principle: <strong>Focus is selective presence.</strong> Stable anchors protect adventure. One month at a time.
-    </p>
-  </footer>
-
-  <script>
-    // Week label: ISO week number (more accurate than a simple week calc)
-    function getISOWeek(date) {
-      const d = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
-      const dayNum = d.getUTCDay() || 7;
-      d.setUTCDate(d.getUTCDate() + 4 - dayNum);
-      const yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
-      return Math.ceil((((d - yearStart) / 86400000) + 1) / 7);
-    }
-    const now = new Date();
-    document.getElementById("week-label").textContent = `ISO Week ${getISOWeek(now)} (${now.getFullYear()})`;
-  </script>
 </body>
 </html>
